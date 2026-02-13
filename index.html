@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For My Anshudi ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Anshu ❤️</title>
 
 <style>
-
 body{
 margin:0;
-font-family: 'Segoe UI', sans-serif;
+font-family:'Segoe UI',sans-serif;
 text-align:center;
 background:linear-gradient(135deg,#ff4e50,#ff6a88);
 color:white;
@@ -16,25 +15,255 @@ overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
-/* Falling Hearts */
+/* Hearts */
 .heart{
 position:fixed;
 top:-10px;
-color:white;
 font-size:20px;
 animation:fall linear infinite;
 }
-
 @keyframes fall{
 to{transform:translateY(110vh);}
 }
 
+/* Firework */
+.fire{
+position:fixed;
+font-size:25px;
+animation:boom 1s ease-out forwards;
+}
+@keyframes boom{
+0%{opacity:1;transform:scale(0);}
+100%{opacity:0;transform:scale(3);}
+}
+
 section{
 min-height:100vh;
-padding:40px 20px;
 display:flex;
 flex-direction:column;
 justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+font-size:18px;
+cursor:pointer;
+margin:10px;
+}
+
+#yesBtn{background:white;color:#ff4e50;}
+#noBtn{
+background:black;
+color:white;
+position:absolute;
+}
+
+.hidden{display:none;}
+
+.gifts{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+margin-top:30px;
+justify-content:center;
+}
+
+.gift{
+width:130px;
+height:130px;
+background:white;
+color:black;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+font-weight:bold;
+position:relative;
+overflow:hidden;
+}
+
+.popup{
+position:absolute;
+width:100%;
+height:100%;
+background:pink;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:10px;
+}
+
+.popup img{
+width:90%;
+border-radius:15px;
+margin:5px;
+}
+
+.bigGift{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+z-index:999;
+}
+
+.endSection{
+background:#000;
+}
+</style>
+</head>
+
+<body>
+
+<section id="proposal">
+<h1 id="typing"></h1>
+<p>Will You Be My Valentine? ❤️</p>
+<button id="yesBtn" onclick="accepted()">YES 💖</button>
+<button id="noBtn" onclick="moveNo()">NO 😏</button>
+</section>
+
+<section id="afterYes" class="hidden">
+<h1>I Love You Anshu ❤️</h1>
+<p>Meri Rasmalai 🤍</p>
+
+<h2>Scroll Down For Gifts 🎁</h2>
+
+<div class="gifts">
+<div class="gift" onclick="openGift1(this)">Gift 1 🎁</div>
+<div class="gift" onclick="openGift2(this)">Gift 2 💌</div>
+<div class="gift" onclick="openGift3(this)">Gift 3 📸</div>
+<div class="gift" onclick="openBigGift()">Final Gift 💖</div>
+</div>
+</section>
+
+<!-- END MUSIC SECTION -->
+<<section class="endSection">
+<h2>Dooron Dooron ❤️</h2>
+<p>Just for you Anshu 💖</p>
+
+<audio controls autoplay loop>
+<source src="Dooron Dooron.mp3" type="audio/mpeg">
+</audio>
+
+</section>
+
+<script>
+
+/* Typing */
+let text="Happy Valentine's Day Anshu ❤️";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,70);
+}}
+type();
+
+/* Hearts */
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),5000);
+},300);
+
+/* Fireworks */
+function firework(){
+for(let i=0;i<20;i++){
+let fire=document.createElement("div");
+fire.className="fire";
+fire.innerHTML="✨";
+fire.style.left=Math.random()*100+"vw";
+fire.style.top=Math.random()*100+"vh";
+document.body.appendChild(fire);
+setTimeout(()=>fire.remove(),1000);
+}
+}
+
+/* Move NO */
+function moveNo(){
+let btn=document.getElementById("noBtn");
+let x=Math.random()*(window.innerWidth-100);
+let y=Math.random()*(window.innerHeight-50);
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+}
+
+/* YES */
+function accepted(){
+document.getElementById("proposal").classList.add("hidden");
+document.getElementById("afterYes").classList.remove("hidden");
+firework();
+}
+
+/* Gift 1 */
+function openGift1(box){
+let popup=document.createElement("div");
+popup.className="popup";
+popup.innerHTML="<img src='1770918892633.png'><p>Just For You ❤️</p>";
+box.appendChild(popup);
+setTimeout(()=>box.removeChild(popup),5000);
+}
+
+/* Gift 2 */
+function openGift2(box){
+let popup=document.createElement("div");
+popup.className="popup";
+popup.innerHTML="<p>Anshu meri jaan 🤍<br>I Love You Forever 💖</p>";
+box.appendChild(popup);
+setTimeout(()=>box.removeChild(popup),5000);
+}
+
+/* Gift 3 */
+function openGift3(box){
+let popup=document.createElement("div");
+popup.className="popup";
+popup.innerHTML=`
+<img src="1770919436492.png">
+<img src="Snapchat-8466911.png">
+`;
+box.appendChild(popup);
+setTimeout(()=>box.removeChild(popup),5000);
+}
+
+/* Final Gift */
+function openBigGift(){
+let big=document.createElement("div");
+big.className="bigGift";
+big.innerHTML=`
+<h2>Anshu ❤️</h2>
+<p>
+Kal ke liye sorry...  
+Tum meri jaan ho aur hamesha rahogi.  
+Main tumse bahut pyaar karta hu baccha.  
+I Love You So Much 💖
+</p>
+<button onclick="this.parentElement.remove()">Close 💕</button>
+`;
+document.body.appendChild(big);
+}
+
+</script>
+
+</body>
+</html>justify-content:center;
 align-items:center;
 }
 
