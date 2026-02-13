@@ -201,9 +201,11 @@ window.scrollTo(0,0);
 function openGift1(box){
 let popup=document.createElement("div");
 popup.className="popup";
-popup.innerHTML="<img src='romantic1.jpg'><p>Just For You ❤️</p>";
+popup.innerHTML="<img src='1770918892633.png'><p>Just For You ❤️</p>";
 box.appendChild(popup);
+
 document.getElementById("music").play();
+
 setTimeout(()=>{
 box.removeChild(popup);
 document.getElementById("music").pause();
@@ -224,13 +226,15 @@ setTimeout(()=>{box.removeChild(popup);},5000);
 function openGift3(box){
 let popup=document.createElement("div");
 popup.className="popup";
-popup.innerHTML="
-<img src='photo1.jpg'>
-<img src='photo2.jpg'>
-<img src='photo3.jpg'>
-";
+popup.innerHTML=`
+<img src="1770919436492.png">
+<img src="Snapchat-8466911.png">
+`;
 box.appendChild(popup);
-setTimeout(()=>{box.removeChild(popup);},5000);
+
+setTimeout(()=>{
+box.removeChild(popup);
+},5000);
 }
 
 </script>
