@@ -1,146 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>For My Anshudi ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+
 body{
 margin:0;
-height:100vh;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-display:flex;
-align-items:center;
-justify-content:center;
-font-family:Segoe UI,sans-serif;
-overflow:hidden;
-}
-
-.card{
-background:#fff;
-padding:35px;
-border-radius:22px;
+font-family: 'Segoe UI', sans-serif;
 text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,.2);
-width:320px;
-z-index:2;
+background:linear-gradient(135deg,#ff4e50,#ff6a88);
+color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-h1{
-color:#ff4d6d;
-font-size:26px;
+/* Falling Hearts */
+.heart{
+position:fixed;
+top:-10px;
+color:white;
+font-size:20px;
+animation:fall linear infinite;
 }
 
-#message{
-margin:15px 0;
-font-size:16px;
-color:#555;
+@keyframes fall{
+to{transform:translateY(110vh);}
 }
 
-.buttons{
-margin-top:20px;
-position:relative;
-height:90px;
+section{
+min-height:100vh;
+padding:40px 20px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
+
+h1{font-size:35px;}
+p{font-size:20px;max-width:600px;}
 
 button{
-padding:10px 22px;
-font-size:16px;
+padding:12px 25px;
+font-size:18px;
 border:none;
 border-radius:25px;
 cursor:pointer;
+margin:10px;
+transition:0.3s;
 }
 
-#yes{
-background:#ff4d6d;
+#yesBtn{background:white;color:#ff4e50;}
+#yesBtn:hover{transform:scale(1.1);}
+#noBtn{
+background:black;
 color:white;
-}
-
-#no{
-background:#ccc;
 position:absolute;
-left:150px;
 }
 
-.heart{
-position:fixed;
-color:#ff4d6d;
-font-size:20px;
-animation:float 4s linear infinite;
+.hidden{display:none;}
+
+.chocolate img{
+width:130px;
+margin:10px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
-@keyframes float{
-0%{transform:translateY(100vh);opacity:1;}
-100%{transform:translateY(-10vh);opacity:0;}
-}
-</style>
-</head>
-<body>
-
-<div class="card">
-<h1>❤️ Anshu ❤️</h1>
-<p id="message">
-Anshudi 🥰,  
-tum meri life line ho.  
-Meri har muskaan, har khushi  
-sirf tumse judi hai 💖  
-</p>
-
-<h2>Will you be my Valentine? 💌</h2>
-
-<div class="buttons">
-<button id="yes" onclick="yesClicked()">Yes 💖</button>
-<button id="no" onmouseover="moveNo()">No 🙈</button>
-</div>
-</div>
-
-<script>
-let texts=[
-"Anshudi sure? 😏",
-"Ohh nice try 😜",
-"Life line ko mana karegi? 😁",
-"Think again meri jaan 💕"
-];
-let i=0;
-
-function moveNo(){
-const no=document.getElementById("no");
-const msg=document.getElementById("message");
-
-const x=Math.random()*220-110;
-const y=Math.random()*80-40;
-
-no.style.transform=`translate(${x}px,${y}px)`;
-msg.innerText=texts[i%texts.length];
-i++;
+.gifts{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:40px;
 }
 
-function yesClicked(){
-document.body.innerHTML=`
-<div style="
-height:100vh;
+.gift{
+width:130px;
+height:130px;
+background:white;
+color:black;
+border-radius:20px;
 display:flex;
 align-items:center;
 justify-content:center;
-flex-direction:column;
-background:linear-gradient(135deg,#ff758c,#ff7eb3);
-color:white;
-font-family:Segoe UI,sans-serif;
-text-align:center;">
-<h1>Yayyy 😍💖</h1>
-<p>Anshudi, mujhe pata tha tum haan hi kahogi 🥰  
-Tum meri zindagi ho ❤️</p>
-</div>`;
+cursor:pointer;
+font-weight:bold;
+position:relative;
+overflow:hidden;
+transition:0.3s;
 }
 
+.gift:hover{transform:scale(1.1);}
+
+.popup{
+position:absolute;
+width:100%;
+height:100%;
+background:pink;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:10px;
+animation:fade 0.5s ease-in-out;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.popup img{
+width:90%;
+border-radius:15px;
+margin:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SECTION 1 -->
+<section id="proposal">
+<h1 id="typing"></h1>
+<p>Will You Be My Valentine? 🤍</p>
+<button id="yesBtn" onclick="accepted()">YES 💖</button>
+<button id="noBtn" onclick="moveNo()">NO 😏</button>
+</section>
+
+<!-- SECTION 2 -->
+<section id="afterYes" class="hidden">
+<h1>I Love You Anshudi ❤️</h1>
+<p>
+Tum meri life line ho…  
+Meri Rasmalai 🤍  
+Thank you meri life me aane ke liye.
+</p>
+
+<div class="chocolate">
+<img src="https://i.imgur.com/8Km9tLL.jpg">
+<img src="https://i.imgur.com/jxWqIBf.jpg">
+</div>
+
+<h2>Scroll Down For Gifts 🎁</h2>
+
+<div class="gifts">
+<div class="gift" onclick="openGift1(this)">Gift 1 🎁</div>
+<div class="gift" onclick="openGift2(this)">Gift 2 🎀</div>
+<div class="gift" onclick="openGift3(this)">Gift 3 💝</div>
+</div>
+
+<audio id="music" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
+
+</section>
+
+<script>
+
+/* Typing Effect */
+let text="Happy Valentine's Day Anshudi ❤️";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,80);
+}
+}
+type();
+
+/* Falling Hearts */
 setInterval(()=>{
-const heart=document.createElement("div");
+let heart=document.createElement("div");
 heart.className="heart";
-heart.innerText="❤️";
+heart.innerHTML="❤️";
 heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=Math.random()*10+15+"px";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
 document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),4000);
+setTimeout(()=>{heart.remove();},5000);
 },300);
+
+/* Move NO randomly */
+function moveNo(){
+let btn=document.getElementById("noBtn");
+let x=Math.random()*(window.innerWidth-100);
+let y=Math.random()*(window.innerHeight-50);
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+}
+
+/* YES Click */
+function accepted(){
+document.getElementById("proposal").classList.add("hidden");
+document.getElementById("afterYes").classList.remove("hidden");
+window.scrollTo(0,0);
+}
+
+/* Gift 1 */
+function openGift1(box){
+let popup=document.createElement("div");
+popup.className="popup";
+popup.innerHTML="<img src='romantic1.jpg'><p>Just For You ❤️</p>";
+box.appendChild(popup);
+document.getElementById("music").play();
+setTimeout(()=>{
+box.removeChild(popup);
+document.getElementById("music").pause();
+document.getElementById("music").currentTime=0;
+},5000);
+}
+
+/* Gift 2 */
+function openGift2(box){
+let popup=document.createElement("div");
+popup.className="popup";
+popup.innerHTML="<p>Anshudi meri Rasmalai 🤍<br>I Love You Forever ❤️</p>";
+box.appendChild(popup);
+setTimeout(()=>{box.removeChild(popup);},5000);
+}
+
+/* Gift 3 */
+function openGift3(box){
+let popup=document.createElement("div");
+popup.className="popup";
+popup.innerHTML="
+<img src='photo1.jpg'>
+<img src='photo2.jpg'>
+<img src='photo3.jpg'>
+";
+box.appendChild(popup);
+setTimeout(()=>{box.removeChild(popup);},5000);
+}
+
 </script>
 
 </body>
