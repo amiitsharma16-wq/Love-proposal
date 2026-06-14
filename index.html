@@ -6,59 +6,44 @@
 <title>For Harshita ❤️</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
 body{
-overflow:hidden;
 height:100vh;
+overflow:hidden;
 color:white;
-text-align:center;
-
-/* 💖 SOFT ROMANTIC BACKGROUND */
-background:linear-gradient(135deg,#ff3d8d,#ff6fb5,#ff9ad5,#ffd1e8);
-background-size:400% 400%;
-animation:bg 10s ease infinite;
+background:radial-gradient(circle at top,#1a1a1a,#000000,#0a0a0a);
 }
 
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-/* SCREEN SYSTEM */
+/* SCREEN */
 .screen{
 display:none;
 height:100vh;
 justify-content:center;
 align-items:center;
 flex-direction:column;
+text-align:center;
 padding:20px;
 }
 .active{display:flex;}
 
 /* CARD */
 .card{
-background:rgba(255,255,255,0.12);
-padding:22px;
-border-radius:20px;
-backdrop-filter:blur(12px);
-box-shadow:0 0 25px rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.06);
+padding:25px;
+border-radius:18px;
+backdrop-filter:blur(15px);
+box-shadow:0 0 25px rgba(255,255,255,0.08);
 max-width:420px;
 }
 
 /* TEXT */
-h1{font-size:2rem;margin-bottom:12px;}
-p{line-height:1.7;margin-top:10px;}
+h1{font-size:2rem;margin-bottom:10px;}
+p{line-height:1.7;margin-top:10px;color:#ddd;}
 
 /* BUTTON */
 button{
-margin-top:12px;
+margin-top:15px;
 padding:12px 22px;
 border:none;
 border-radius:25px;
@@ -66,32 +51,185 @@ background:white;
 color:black;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
 }
-button:hover{transform:scale(1.05);}
 
-/* IMAGE */
+.glow{
+color:#ff4da6;
+text-shadow:0 0 15px #ff4da6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="screen active" id="intro">
+<div class="card">
+<h1 class="glow">For My Rasmalai 🍮❤️</h1>
+<p>
+This is not just a website…<br>
+This is my heart in digital form.<br><br>
+
+For someone special — <b>Harshita ❤️</b>
+</p>
+
+<button onclick="start()">Start Journey 💖</button>
+</div>
+</div>
+
+<script>
+function start(){
+window.location.href="#part2.html";
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story ❤️</title>
+
+<style>
+body{
+height:100vh;
+overflow:hidden;
+background:radial-gradient(circle,#000,#111,#000);
+color:white;
+text-align:center;
+font-family:Arial;
+}
+
+.screen{
+display:flex;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.card{
+background:rgba(255,255,255,0.07);
+padding:20px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+max-width:400px;
+}
+
 img{
-width:100%;
-max-width:340px;
-height:60vh;
+width:300px;
+height:400px;
 object-fit:cover;
-border-radius:20px;
-opacity:1;
-transition:0.5s ease;
-box-shadow:0 0 20px rgba(255,255,255,0.3);
+border-radius:15px;
+box-shadow:0 0 20px rgba(255,255,255,0.1);
 }
 
-/* CAPTION */
 .caption{
-margin-top:12px;
-background:rgba(0,0,0,0.35);
-padding:10px 15px;
-border-radius:12px;
-transition:0.4s;
+margin-top:10px;
+color:#ddd;
 }
 
-/* HEARTS */
+button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:white;
+color:black;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="screen">
+<div class="card">
+<img id="img" src="photo1.jpg">
+<div class="caption" id="cap"></div>
+<button onclick="next()">Next ❤️</button>
+</div>
+</div>
+
+<script>
+
+let i=0;
+
+const images=[
+"photo1.jpg","photo2.jpg","photo3.jpg",
+"photo4.jpg","photo5.jpg"
+];
+
+const captions=[
+"Among millions of people, I found you ❤️",
+"You are my peace 🖤",
+"My favorite smile ✨",
+"My safe place 💕",
+"My forever Rasmalai 🍮❤️"
+];
+
+function next(){
+
+i++;
+
+if(i>=images.length){
+window.location.href="#part3.html";
+return;
+}
+
+document.getElementById("img").src=images[i];
+document.getElementById("cap").innerText=captions[i];
+
+}
+
+document.getElementById("cap").innerText=captions[0];
+
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Question ❤️</title>
+
+<style>
+body{
+height:100vh;
+overflow:hidden;
+background:radial-gradient(circle,#000,#0a0a0a,#000);
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:18px;
+max-width:420px;
+backdrop-filter:blur(15px);
+margin:auto;
+margin-top:15%;
+}
+
+button{
+margin-top:10px;
+padding:12px 20px;
+border:none;
+border-radius:20px;
+background:white;
+color:black;
+font-weight:bold;
+cursor:pointer;
+}
+
 .heart{
 position:absolute;
 font-size:20px;
@@ -103,210 +241,47 @@ from{transform:translateY(-100px);opacity:1;}
 to{transform:translateY(110vh);opacity:0;}
 }
 
+.glow{
+color:#ff4da6;
+text-shadow:0 0 20px #ff4da6;
+}
 </style>
 </head>
 
 <body>
 
-<audio id="music">
-<source src="Blue-Yung-Kai.mp3" type="audio/mp3">
-</audio>
-
-<!-- INTRO -->
-<div class="screen active" id="intro">
 <div class="card">
-<h1>For My Rasmalai 🍮❤️</h1>
-<p>Someone very special… <b>Harshita ❤️</b></p>
-<button onclick="start()">Start Journey 💖</button>
-</div>
-</div>
-
-<!-- SLIDESHOW -->
-<div class="screen" id="gallery">
-<div class="card">
-<img id="img">
-<div class="caption" id="cap"></div>
-</div>
-</div>
-
-<!-- MESSAGE -->
-<div class="screen" id="msg">
-<div class="card">
-<h1>My Rasmalai 🍮❤️</h1>
-<p>You are my peace, happiness and my favorite person in this world.</p>
-<button onclick="question()">Continue</button>
-</div>
-</div>
-
-<!-- QUESTION -->
-<div class="screen" id="question">
-<div class="card">
-<h1>Will you be mine forever,<br>Harshita (Rasmalai)? 💖</h1>
+<h1 class="glow">Will you be mine forever,<br>Harshita (Rasmalai)? 🍮❤️</h1>
 
 <button onclick="yes()">Yes 🤍</button>
 <button onclick="yes()">Of course 🌸</button>
 <button onclick="yes()">Forever ♾️</button>
 <button onclick="yes()">Always yours 💕</button>
-</div>
-</div>
 
-<!-- FINAL -->
-<div class="screen" id="final">
-<div class="card">
-<h1>🎁 Surprise For You</h1>
-<p id="letter"></p>
-<h2 style="margin-top:15px;">I LOVE YOU ♾️</h2>
-</div>
+<p style="margin-top:15px;color:#ccc;">
+No matter what you choose… my answer will always be YOU ❤️
+</p>
 </div>
 
 <script>
 
-let i = 0;
-let timer = null;
-
-/* IMAGES */
-const images = [
-"photo1.jpg","photo2.jpg","photo3.jpg",
-"photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg"
-];
-
-/* CAPTIONS */
-const captions = [
-"Among millions of smiles, yours feels like home ❤️",
-"You are my peace 🩷",
-"Every moment with you is magic ✨",
-"You complete my world 🌸",
-"My heart belongs to you ♾️",
-"I fall for you daily 💕",
-"My forever Rasmalai 🍮❤️"
-];
-
-/* LOVE LETTER */
-const letter =
-`Harshita ❤️
-
-You are not just my love...
-You are my peace, my smile, my everything.
-
-I don’t need a perfect life,
-I just need you in it 🍮❤️
-
-You are my Rasmalai...
-Soft, sweet, and forever mine ♾️
-
-I LOVE YOU ❤️`;
-
-/* SCREEN SWITCH */
-function show(id){
-document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-}
-
-/* START */
-function start(){
-
-show("gallery");
-
-let music = document.getElementById("music");
-music.play().catch(()=>{});
-
-/* reset */
-i = 0;
-setSlide();
-
-/* clear old interval (IMPORTANT FIX) */
-if(timer){
-clearInterval(timer);
-timer = null;
-}
-
-timer = setInterval(()=>{
-
-i++;
-
-if(i >= images.length){
-clearInterval(timer);
-timer = null;
-
-setTimeout(()=>{
-show("msg");
-},1200);
-
-return;
-}
-
-setSlide();
-
-},3000);
-}
-
-/* SLIDE UPDATE */
-function setSlide(){
-
-let img = document.getElementById("img");
-let cap = document.getElementById("cap");
-
-img.style.opacity = 0;
-cap.style.opacity = 0;
-
-setTimeout(()=>{
-
-img.src = images[i];
-cap.innerText = captions[i];
-
-img.style.opacity = 1;
-cap.style.opacity = 1;
-
-},300);
-}
-
-/* QUESTION */
-function question(){
-show("question");
-}
-
-/* YES */
 function yes(){
-show("final");
-typeLetter();
-burst();
+rain();
+setTimeout(()=>{
+alert("I LOVE YOU HARSHITA ❤️♾️");
+},1000);
 }
 
-/* TYPE LETTER (SAFE NO BUG) */
-let idx = 0;
+function rain(){
 
-function typeLetter(){
-
-document.getElementById("letter").innerHTML = "";
-idx = 0;
-
-function write(){
-
-if(idx < letter.length){
-document.getElementById("letter").innerHTML += letter.charAt(idx);
-idx++;
-setTimeout(write,20);
-}
-
-}
-
-write();
-}
-
-/* HEART EFFECT */
-function burst(){
-
-for(let j=0;j<35;j++){
-
-let h = document.createElement("div");
-h.className = "heart";
-h.innerHTML = "🤍";
-h.style.left = Math.random()*100 + "vw";
-
+for(let i=0;i<60;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="🤍";
+h.style.left=Math.random()*100+"vw";
 document.body.appendChild(h);
 
 setTimeout(()=>h.remove(),4000);
-
 }
 
 }
@@ -314,4 +289,4 @@ setTimeout(()=>h.remove(),4000);
 </script>
 
 </body>
-  </html>
+</html>
