@@ -682,3 +682,157 @@ heart.remove();
 
 </body>
 </html>
+
+function heartBurst(){
+
+for(let i=0;i<40;i++){
+
+const heart =
+document.createElement("div");
+
+heart.className = "heart";
+heart.innerHTML = "🤍";
+
+heart.style.left =
+Math.random()*100 + "vw";
+
+heart.style.animationDuration =
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+}
+
+}
+
+function showQuestion(){
+
+showScreen("questionScreen");
+
+}
+
+function finalYes(){
+
+showScreen("finalScreen");
+
+whiteHeartRain();
+
+}
+
+function whiteHeartRain(){
+
+setInterval(()=>{
+
+const heart =
+document.createElement("div");
+
+heart.className = "heart";
+heart.innerHTML = "🤍";
+
+heart.style.left =
+Math.random()*100 + "vw";
+
+heart.style.animationDuration =
+(Math.random()*4+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},7000);
+
+},300);
+
+}
+
+</script>
+
+<!-- QUESTION SCREEN -->
+
+<section
+id="questionScreen"
+class="screen hidden"
+>
+
+<div class="question">
+
+💍 Will You Be Mine Forever,<br>
+Harshita (My Rasmalai)? 🤍
+
+</div>
+
+<button
+class="option-btn"
+onclick="finalYes()"
+>
+
+🤍 Yes, Forever & Always
+
+</button>
+
+<button
+class="option-btn"
+onclick="finalYes()"
+>
+
+🌸 Of Course, My Aryan
+
+</button>
+
+<button
+class="option-btn"
+onclick="finalYes()"
+>
+
+♾️ Forever and Ever
+
+</button>
+
+<button
+class="option-btn"
+onclick="finalYes()"
+>
+
+🍮 Yes, I'm Your Rasmalai
+
+</button>
+
+</section>
+
+<!-- FINAL SCREEN -->
+
+<section
+id="finalScreen"
+class="screen hidden"
+>
+
+<div class="final-title">
+
+SHE SAID YES ❤️
+
+</div>
+
+<div class="final-sub">
+
+Aryan ❤️ Harshita
+
+<br><br>
+
+Forever Starts Here ♾️
+
+<br><br>
+
+You will always be my favorite person,
+my happiness,
+and my Rasmalai 🍮❤️
+
+</div>
+
+</section>
+
+</body>
+</html>
