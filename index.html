@@ -37,21 +37,12 @@ align-items:center;
 flex-direction:column;
 padding:20px;
 }
-
-.active{
-display:flex;
-}
+.active{display:flex;}
 
 /* TEXT */
-h1{
-font-size:2rem;
-margin-bottom:15px;
-}
-
-p{
-max-width:350px;
-line-height:1.7;
-}
+h1{font-size:2rem;margin-bottom:15px;}
+h2{margin-top:10px;}
+p{max-width:350px;line-height:1.7;}
 
 /* BUTTON */
 button{
@@ -63,7 +54,9 @@ background:white;
 color:black;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
 }
+button:hover{transform:scale(1.05);}
 
 /* IMAGE */
 img{
@@ -81,7 +74,8 @@ margin-top:15px;
 background:rgba(0,0,0,0.3);
 padding:10px 15px;
 border-radius:15px;
-backdrop-filter:blur(5px);
+opacity:1;
+transition:0.5s ease;
 }
 
 /* HEART */
@@ -106,25 +100,28 @@ to{transform:translateY(110vh);opacity:0;}
 
 <!-- INTRO -->
 <div class="screen active" id="intro">
-<h1>For My Rasmalai ❤️</h1>
+<div>
+<h1>For My Rasmalai 🍮❤️</h1>
 <p>This is for one special person in my life...<br><b>Harshita ❤️</b></p>
 <button onclick="start()">Open ❤️</button>
+</div>
 </div>
 
 <!-- SLIDESHOW -->
 <div class="screen" id="gallery">
-<img id="img" src="photo1.jpg">
+<div>
+<img id="img" src="">
 <div class="caption" id="cap"></div>
+</div>
 </div>
 
 <!-- MESSAGE -->
 <div class="screen" id="msg">
+<div>
 <h1>My Rasmalai 🍮❤️</h1>
-<p>
-You are my peace, my happiness and my favorite person in this world.
-I never want to lose you ❤️
-</p>
+<p>You are my peace, happiness & my favorite person in this world.</p>
 <button onclick="heartScreen()">Continue</button>
+</div>
 </div>
 
 <!-- HEART -->
@@ -135,47 +132,50 @@ I never want to lose you ❤️
 
 <!-- LOVE -->
 <div class="screen" id="love">
+<div>
 <h1>I LOVE YOU HARSHITA ❤️</h1>
 <h2>TODAY • TOMORROW • FOREVER ♾️</h2>
 <button onclick="question()">Continue</button>
 </div>
+</div>
 
 <!-- QUESTION -->
 <div class="screen" id="question">
-<h1>Will you be mine forever,<br>Harshita (Rasmalai)? 🤍</h1>
+<div>
+<h1>Will you be mine forever,<br>Harshita (Rasmalai)? 🍮❤️</h1>
 
 <button onclick="yes()">Yes 🤍</button>
 <button onclick="yes()">Of course 🌸</button>
 <button onclick="yes()">Forever ♾️</button>
-<button onclick="yes()">I’m yours 🍮</button>
+<button onclick="yes()">I’m yours 💕</button>
+</div>
 </div>
 
 <!-- FINAL -->
 <div class="screen" id="final">
+<div>
 <h1>SHE SAID YES ❤️</h1>
 <h2>Aryan ❤️ Harshita</h2>
+</div>
 </div>
 
 <script>
 
-let i=0;
+let i = 0;
+let interval = null;
+let rainInterval = null;
 
 const images=[
-"photo1.jpg",
-"photo2.jpg",
-"photo3.jpg",
-"photo4.jpg",
-"photo5.jpg",
-"photo6.jpg",
-"photo7.jpg"
+"photo1.jpg","photo2.jpg","photo3.jpg",
+"photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg"
 ];
 
 const captions=[
-"Among millions of smiles, yours became my favorite ❤️",
+"Among millions of smiles, yours feels like home ❤️",
 "The prettiest girl in my world ❤️",
 "My favorite notification ❤️",
 "The reason my days feel brighter ❤️",
-"My comfort, my peace, my happiness ❤️",
+"My comfort, my peace ❤️",
 "The girl I never want to lose ❤️",
 "My forever Rasmalai 🍮❤️"
 ];
@@ -185,43 +185,53 @@ document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
 document.getElementById(id).classList.add("active");
 }
 
+/* START SLIDESHOW */
 function start(){
 show("gallery");
 
 let music=document.getElementById("music");
-music.play();
+music.play().catch(()=>{});
 
-setTimeout(()=>{
-music.pause();
-music.currentTime=0;
-},120000); // 2 min
-
-document.getElementById("img").src=images[0];
-document.getElementById("cap").innerText=captions[0];
-
-setInterval(()=>{
-i++;
-if(i>=images.length){
-setTimeout(()=>show("msg"),2000);
-return;
-}
+i=0;
 document.getElementById("img").src=images[i];
 document.getElementById("cap").innerText=captions[i];
-},4000);
+
+/* FIX: clear old interval */
+if(interval) clearInterval(interval);
+
+interval=setInterval(()=>{
+
+i++;
+
+if(i>=images.length){
+clearInterval(interval);
+setTimeout(()=>show("msg"),1500);
+return;
 }
 
-function heartScreen(){
-show("heartScreen");
+/* image change */
+document.getElementById("img").src=images[i];
+
+/* caption sync fix */
+document.getElementById("cap").style.opacity=0;
+
+setTimeout(()=>{
+document.getElementById("cap").innerText=captions[i];
+document.getElementById("cap").style.opacity=1;
+},400);
+
+},3000);
 }
+
+/* FLOW */
+function heartScreen(){show("heartScreen");}
 
 function love(){
 show("love");
 burst();
 }
 
-function question(){
-show("question");
-}
+function question(){show("question");}
 
 function yes(){
 show("final");
@@ -230,7 +240,7 @@ rain();
 
 /* HEART BURST */
 function burst(){
-for(let i=0;i<30;i++){
+for(let j=0;j<25;j++){
 let h=document.createElement("div");
 h.className="heart";
 h.innerHTML="🤍";
@@ -240,19 +250,22 @@ setTimeout(()=>h.remove(),4000);
 }
 }
 
-/* FINAL RAIN */
+/* FIXED RAIN (NO OVERLOAD) */
 function rain(){
-setInterval(()=>{
+
+if(rainInterval) clearInterval(rainInterval);
+
+rainInterval=setInterval(()=>{
 let h=document.createElement("div");
 h.className="heart";
 h.innerHTML="🤍";
 h.style.left=Math.random()*100+"vw";
 document.body.appendChild(h);
 setTimeout(()=>h.remove(),5000);
-},300);
+},250);
 }
 
 </script>
 
 </body>
- </html>
+</html>
