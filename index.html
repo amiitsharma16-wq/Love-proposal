@@ -5,15 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Rasmalai ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
@@ -32,61 +30,43 @@ align-items:center;
 flex-direction:column;
 text-align:center;
 padding:25px;
-transition:1s;
-}
-
-.hidden{
-opacity:0;
-pointer-events:none;
-transform:scale(.95);
+display:none;
 }
 
 .active{
-opacity:1;
-pointer-events:auto;
-}
-
-.btn{
-padding:14px 32px;
-border:none;
-border-radius:50px;
-background:#fff;
-color:#000;
-font-size:1rem;
-font-weight:600;
-margin-top:25px;
-cursor:pointer;
+display:flex;
 }
 
 #intro{
-background:linear-gradient(180deg,#000,#111,#000);
+background:
+linear-gradient(
+180deg,
+#000,
+#111,
+#000
+);
 }
 
-#intro h1{
+h1{
 font-size:2.2rem;
 margin-bottom:20px;
 }
 
-#intro p{
-max-width:340px;
+p{
 line-height:1.8;
+max-width:350px;
 }
 
-.glow{
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{
-text-shadow:0 0 10px white;
-}
-to{
-text-shadow:0 0 30px white;
-}
-}
-
-#gallery{
-background:#000;
+.btn{
+padding:14px 30px;
+border:none;
+border-radius:40px;
+background:white;
+color:black;
+font-size:1rem;
+font-weight:600;
+margin-top:25px;
+cursor:pointer;
 }
 
 .gallery-img{
@@ -95,14 +75,34 @@ max-width:380px;
 height:72vh;
 object-fit:cover;
 border-radius:25px;
-box-shadow:0 0 30px rgba(255,255,255,.25);
+box-shadow:0 0 25px rgba(255,255,255,.25);
 }
 
 .gallery-text{
 margin-top:20px;
 font-size:1.15rem;
-line-height:1.8;
-max-width:340px;
+line-height:1.7;
+max-width:330px;
+}
+
+.heart{
+position:absolute;
+color:white;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+
 }
 
 audio{
@@ -114,14 +114,17 @@ display:none;
 
 <body>
 
-<audio id="bgMusic">
+<audio id="music">
 <source src="Blue-Yung-Kai.mp3" type="audio/mpeg">
 </audio>
 
-<section id="intro" class="screen active">
+<section
+id="intro"
+class="screen active"
+>
 
-<h1 class="glow">
-For Someone Very Special ❤️
+<h1>
+For My Rasmalai ❤️
 </h1>
 
 <p>
@@ -134,25 +137,35 @@ This page belongs to only one person...
 
 </p>
 
-<button class="btn" onclick="startStory()">
-Open ❤️
+<button
+class="btn"
+onclick="startStory()"
+>
+
+Open My Heart 🤍
+
 </button>
 
 </section>
 
-<section id="gallery" class="screen hidden">
+<section
+id="gallery"
+class="screen"
+>
 
 <img
 id="slideImage"
 class="gallery-img"
-src="photo1.jpg">
+src="photo1.jpg"
+>
 
 <div
 id="slideText"
-class="gallery-text">
+class="gallery-text"
+>
 
-Among millions of smiles...
-Yours became my favorite ❤️
+Among millions of smiles,
+yours became my favorite ❤️
 
 </div>
 
@@ -160,13 +173,16 @@ Yours became my favorite ❤️
 
  <!-- RASMALAI SECTION -->
 
-<section id="rasmalai" class="screen hidden">
+<section
+id="rasmalai"
+class="screen"
+>
 
-<h2 style="font-size:2.3rem;margin-bottom:20px;">
+<h1>
 My Rasmalai 🍮❤️
-</h2>
+</h1>
 
-<p style="max-width:360px;line-height:2;">
+<p>
 
 Do you know why I call you Rasmalai?
 
@@ -176,7 +192,8 @@ Because you're the sweetest thing that ever happened to me.
 
 <br><br>
 
-No matter how difficult my day gets,
+No matter how difficult my day gets...
+
 one thought of you makes everything feel better.
 
 <br><br>
@@ -190,7 +207,8 @@ and one of the best things that ever happened to me. ❤️
 
 <button
 class="btn"
-onclick="showLetter()">
+onclick="showLetter()"
+>
 
 Continue ❤️
 
@@ -198,22 +216,18 @@ Continue ❤️
 
 </section>
 
-<!-- LETTER SECTION -->
+<!-- LOVE LETTER -->
 
-<section id="letter" class="screen hidden">
+<section
+id="letter"
+class="screen"
+>
 
-<div style="
-background:white;
-color:black;
-padding:25px;
-border-radius:25px;
-width:90%;
-max-width:400px;
-">
+<h1>
+💌 Dear Harshita
+</h1>
 
-<h2>💌 Dear Harshita</h2>
-
-<p style="line-height:1.9;">
+<p>
 
 You entered my life unexpectedly...
 
@@ -221,27 +235,15 @@ but now I can't imagine my life without you.
 
 <br><br>
 
-Thank you for every smile.
-
-Every laugh.
-
-Every memory.
-
-And every moment.
+Thank you for every smile,
+every laugh,
+and every memory.
 
 <br><br>
 
-You became my favorite notification.
+You became my favorite person.
 
-My favorite smile.
-
-My favorite thought.
-
-And my favorite person.
-
-<br><br>
-
-If life gives me a chance to choose again,
+And if life gives me another chance,
 
 I would still choose you.
 
@@ -253,11 +255,10 @@ Every single time. ❤️
 
 </p>
 
-</div>
-
 <button
 class="btn"
-onclick="showHeartScreen()">
+onclick="showHeart()"
+>
 
 Continue ❤️
 
@@ -269,24 +270,26 @@ Continue ❤️
 
 <section
 id="heartScreen"
-class="screen hidden">
+class="screen"
+>
 
 <div
 id="whiteHeart"
-onclick="showLoveScreen()"
+onclick="showLove()"
 style="
 font-size:120px;
 cursor:pointer;
 animation:pulse 1.5s infinite;
-">
+"
+>
 
 🤍
 
 </div>
 
-<h2 style="margin-top:20px;">
+<p style="margin-top:20px;">
 Touch My Heart ❤️
-</h2>
+</p>
 
 </section>
 
@@ -314,29 +317,21 @@ transform:scale(1);
 
 <section
 id="loveScreen"
-class="screen hidden">
+class="screen"
+>
 
-<h1 style="
-font-size:2.3rem;
-margin-bottom:20px;
-">
-
+<h1>
 I LOVE YOU HARSHITA ❤️
-
 </h1>
 
-<h2 style="
-font-size:1.2rem;
-font-weight:400;
-">
-
+<h2 style="margin-top:20px;">
 TODAY • TOMORROW • FOREVER ♾️
-
 </h2>
 
 <button
 class="btn"
-onclick="showQuestion()">
+onclick="showQuestion()"
+>
 
 Continue ❤️
 
@@ -348,92 +343,72 @@ Continue ❤️
 
 <section
 id="questionScreen"
-class="screen hidden">
+class="screen"
+>
 
-<h2 style="
-font-size:2rem;
-margin-bottom:35px;
-line-height:1.6;
-">
+<h1>
 
 💍 Will You Be Mine Forever,<br>
 Harshita (My Rasmalai)? 🤍
 
-</h2>
+</h1>
 
 <button
-class="btn option-btn"
-onclick="finalYes()">
+class="btn"
+onclick="finalYes()"
+>
 
 🤍 Yes, Forever & Always
 
 </button>
 
 <button
-class="btn option-btn"
-onclick="finalYes()">
+class="btn"
+onclick="finalYes()"
+>
 
-🌙 Yes, Till My Last Breath
-
-</button>
-
-<button
-class="btn option-btn"
-onclick="finalYes()">
-
-✨ Yes, In Every Lifetime
+🌸 Of Course, My Aryan
 
 </button>
 
 <button
-class="btn option-btn"
-onclick="finalYes()">
+class="btn"
+onclick="finalYes()"
+>
 
-🍮 Yes, Your Rasmalai Is Yours Forever
+♾️ Forever and Ever
+
+</button>
+
+<button
+class="btn"
+onclick="finalYes()"
+>
+
+🍮 Yes, I'm Your Rasmalai
 
 </button>
 
 </section>
 
-<style>
-
-.option-btn{
-width:280px;
-margin:8px;
-}
-
-</style>
-
 <!-- FINAL SCREEN -->
 
 <section
 id="finalScreen"
-class="screen hidden">
+class="screen"
+>
 
-<h1 style="
-font-size:2.5rem;
-margin-bottom:20px;
-">
-
+<h1>
 SHE SAID YES ❤️
-
 </h1>
 
-<h2>
-
+<h2 style="margin-top:20px;">
 Aryan ❤️ Harshita
-
-<br><br>
-
-Forever Starts Here ♾️
-
-<br><br>
-
-You will always be my favorite person,
-my happiness,
-and my Rasmalai 🍮🤍
-
 </h2>
+
+<h3 style="margin-top:20px;">
+Forever Starts Here ♾️
+</h3>
 
 </section>
 
@@ -469,30 +444,13 @@ const captions = [
 
 ];
 
-let currentPhoto = 0;
+let current = 0;
 
- <script>
-
-function hideAll(){
+function show(id){
 
 document
 .querySelectorAll(".screen")
-.forEach(screen=>{
-
-screen.classList.remove("active");
-screen.classList.add("hidden");
-
-});
-
-}
-
-function showScreen(id){
-
-hideAll();
-
-document
-.getElementById(id)
-.classList.remove("hidden");
+.forEach(s=>s.classList.remove("active"));
 
 document
 .getElementById(id)
@@ -502,10 +460,10 @@ document
 
 function startStory(){
 
-showScreen("gallery");
+show("gallery");
 
 const music =
-document.getElementById("bgMusic");
+document.getElementById("music");
 
 music.play().catch(()=>{});
 
@@ -514,7 +472,7 @@ setTimeout(()=>{
 music.pause();
 music.currentTime = 0;
 
-},120000); // 2 minutes
+},120000);
 
 startSlideshow();
 
@@ -531,170 +489,81 @@ document.getElementById("slideText");
 image.src = photos[0];
 text.innerHTML = captions[0];
 
-let slideshow = setInterval(()=>{
+let timer = setInterval(()=>{
 
-currentPhoto++;
+current++;
 
-if(currentPhoto >= photos.length){
+if(current >= photos.length){
 
-clearInterval(slideshow);
+clearInterval(timer);
 
 setTimeout(()=>{
 
-showScreen("rasmalai");
+show("rasmalai");
 
-},2500);
+},3000);
 
 return;
 
 }
 
-image.src =
-photos[currentPhoto];
-
-text.innerHTML =
-captions[currentPhoto];
-
-},4500);
-
-}
-
-function showLetter(){
-showScreen("letter");
-}
-
-function showHeartScreen(){
-showScreen("heartScreen");
-}
-
-function showLoveScreen(){
-
-heartBurst();
-
-showScreen("loveScreen");
-
-}
-
-function showQuestion(){
-showScreen("questionScreen");
-}
-
-function finalYes(){
-
-showScreen("finalScreen");
-
-whiteHeartRain();
-
-setTimeout(()=>{
-
-document.getElementById(
-"finalScreen"
-).innerHTML = `
-
-<h1 style="font-size:2.5rem;">
-🤍 Forever Starts Here 🤍
-</h1>
-
-<h2 style="line-height:1.8;">
-
-Aryan ❤️ Harshita
-
-<br><br>
-
-You are my favorite person,
-my happiness,
-my peace,
-and my sweetest Rasmalai 🍮🤍
-
-<br><br>
-
-∞ Together Forever ∞
-
-<br><br>
-
-Thank You For Being In My Life ❤️
-
-</h2>
-
-`;
+image.src = photos[current];
+text.innerHTML = captions[current];
 
 },5000);
 
 }
 
-function heartBurst(){
+function showLetter(){
 
-for(let i=0;i<40;i++){
-
-const heart =
-document.createElement("div");
-
-heart.innerHTML = "🤍";
-
-heart.style.position = "absolute";
-heart.style.left =
-Math.random()*100+"vw";
-
-heart.style.top =
-Math.random()*100+"vh";
-
-heart.style.fontSize =
-(Math.random()*25+20)+"px";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},3000);
+show("letter");
 
 }
 
-}
+function showHeart(){
 
-function whiteHeartRain(){
-
-setInterval(()=>{
-
-const heart =
-document.createElement("div");
-
-heart.classList.add("heart");
-
-heart.innerHTML = "🤍";
-
-heart.style.left =
-Math.random()*100+"vw";
-
-heart.style.animationDuration =
-(Math.random()*4+4)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},8000);
-
-},250);
+show("heartScreen");
 
 }
 
-</script>
+function showLove(){
 
-</body>
-</html>
+heartBurst();
+
+show("loveScreen");
+
+}
+
+function showQuestion(){
+
+show("questionScreen");
+
+}
+
+function finalYes(){
+
+show("finalScreen");
+
+whiteHeartRain();
+
+}
 
 function heartBurst(){
 
-for(let i=0;i<40;i++){
+for(let i=0;i<35;i++){
 
 const heart =
 document.createElement("div");
 
 heart.className = "heart";
+
 heart.innerHTML = "🤍";
 
 heart.style.left =
-Math.random()*100 + "vw";
+Math.random()*100+"vw";
+
+heart.style.fontSize =
+(Math.random()*25+15)+"px";
 
 heart.style.animationDuration =
 (Math.random()*3+2)+"s";
@@ -709,20 +578,6 @@ heart.remove();
 
 }
 
-function showQuestion(){
-
-showScreen("questionScreen");
-
-}
-
-function finalYes(){
-
-showScreen("finalScreen");
-
-whiteHeartRain();
-
-}
-
 function whiteHeartRain(){
 
 setInterval(()=>{
@@ -731,108 +586,29 @@ const heart =
 document.createElement("div");
 
 heart.className = "heart";
+
 heart.innerHTML = "🤍";
 
 heart.style.left =
-Math.random()*100 + "vw";
+Math.random()*100+"vw";
+
+heart.style.fontSize =
+(Math.random()*25+15)+"px";
 
 heart.style.animationDuration =
-(Math.random()*4+3)+"s";
+(Math.random()*5+3)+"s";
 
 document.body.appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
-},7000);
+},8000);
 
 },300);
 
 }
 
 </script>
-
-<!-- QUESTION SCREEN -->
-
-<section
-id="questionScreen"
-class="screen hidden"
->
-
-<div class="question">
-
-💍 Will You Be Mine Forever,<br>
-Harshita (My Rasmalai)? 🤍
-
-</div>
-
-<button
-class="option-btn"
-onclick="finalYes()"
->
-
-🤍 Yes, Forever & Always
-
-</button>
-
-<button
-class="option-btn"
-onclick="finalYes()"
->
-
-🌸 Of Course, My Aryan
-
-</button>
-
-<button
-class="option-btn"
-onclick="finalYes()"
->
-
-♾️ Forever and Ever
-
-</button>
-
-<button
-class="option-btn"
-onclick="finalYes()"
->
-
-🍮 Yes, I'm Your Rasmalai
-
-</button>
-
-</section>
-
-<!-- FINAL SCREEN -->
-
-<section
-id="finalScreen"
-class="screen hidden"
->
-
-<div class="final-title">
-
-SHE SAID YES ❤️
-
-</div>
-
-<div class="final-sub">
-
-Aryan ❤️ Harshita
-
-<br><br>
-
-Forever Starts Here ♾️
-
-<br><br>
-
-You will always be my favorite person,
-my happiness,
-and my Rasmalai 🍮❤️
-
-</div>
-
-</section>
 
 </body>
 </html>
