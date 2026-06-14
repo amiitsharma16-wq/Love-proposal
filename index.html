@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Rasmalai ❤️</title>
+<title>For Harshita ❤️</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -15,407 +14,153 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#000;
-color:#black;
 overflow:hidden;
+color:white;
+text-align:center;
+background:linear-gradient(135deg,#2b1055,#6a1b9a,#ff4d8d);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
 }
 
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* SCREEN */
 .screen{
-position:absolute;
-width:100%;
+display:none;
 height:100vh;
-display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-text-align:center;
-padding:25px;
-display:none;
+padding:20px;
 }
 
 .active{
 display:flex;
 }
 
-#intro{
-background:
-linear-gradient(
-180deg,
-#000,
-#111,
-#000
-);
-}
-
+/* TEXT */
 h1{
-font-size:2.2rem;
-margin-bottom:20px;
+font-size:2rem;
+margin-bottom:15px;
 }
 
 p{
-line-height:1.8;
 max-width:350px;
+line-height:1.7;
 }
 
-.btn{
-padding:14px 30px;
+/* BUTTON */
+button{
+margin-top:20px;
+padding:12px 25px;
 border:none;
-border-radius:40px;
+border-radius:30px;
 background:white;
 color:black;
-font-size:1rem;
-font-weight:600;
-margin-top:25px;
+font-weight:bold;
 cursor:pointer;
 }
 
-.gallery-img{
+/* IMAGE */
+img{
 width:90%;
-max-width:380px;
-height:72vh;
+max-width:350px;
+height:65vh;
 object-fit:cover;
-border-radius:25px;
-box-shadow:0 0 25px rgba(255,255,255,.25);
+border-radius:20px;
+box-shadow:0 0 20px rgba(255,255,255,0.3);
 }
 
-.gallery-text{
-margin-top:20px;
-font-size:1.15rem;
-line-height:1.7;
-max-width:330px;
+/* CAPTION */
+.caption{
+margin-top:15px;
+background:rgba(0,0,0,0.3);
+padding:10px 15px;
+border-radius:15px;
+backdrop-filter:blur(5px);
 }
 
+/* HEART */
 .heart{
 position:absolute;
-color:white;
-animation:fall linear forwards;
+font-size:20px;
+animation:fall 4s linear forwards;
 }
 
 @keyframes fall{
-
-0%{
-transform:translateY(-100px);
-opacity:1;
+from{transform:translateY(-100px);opacity:1;}
+to{transform:translateY(110vh);opacity:0;}
 }
-
-100%{
-transform:translateY(110vh);
-opacity:0;
-}
-
-}
-
-audio{
-display:none;
-}
-
 </style>
 </head>
 
 <body>
 
 <audio id="music">
-<source src="Blue-Yung-Kai.mp3" type="audio/mpeg">
+<source src="Blue-Yung-Kai.mp3" type="audio/mp3">
 </audio>
 
-<section
-id="intro"
-class="screen active"
->
-
-<h1>
-For My Rasmalai ❤️
-</h1>
-
-<p>
-
-This page belongs to only one person...
-
-<br><br>
-
-<b>Harshita ❤️</b>
-
-</p>
-
-<button
-class="btn"
-onclick="startStory()"
->
-
-Open My Heart 🤍
-
-</button>
-
-</section>
-
-<section
-id="gallery"
-class="screen"
->
-
-<img
-id="slideImage"
-class="gallery-img"
-src="photo1.jpg"
->
-
-<div
-id="slideText"
-class="gallery-text"
->
-
-Among millions of smiles,
-yours became my favorite ❤️
-
+<!-- INTRO -->
+<div class="screen active" id="intro">
+<h1>For My Rasmalai ❤️</h1>
+<p>This is for one special person in my life...<br><b>Harshita ❤️</b></p>
+<button onclick="start()">Open ❤️</button>
 </div>
 
-</section>
-
- <!-- RASMALAI SECTION -->
-
-<section
-id="rasmalai"
-class="screen"
->
-
-<h1>
-My Rasmalai 🍮❤️
-</h1>
-
-<p>
-
-Do you know why I call you Rasmalai?
-
-<br><br>
-
-Because you're the sweetest thing that ever happened to me.
-
-<br><br>
-
-No matter how difficult my day gets...
-
-one thought of you makes everything feel better.
-
-<br><br>
-
-You are my peace,
-my comfort,
-my happiness,
-and one of the best things that ever happened to me. ❤️
-
-</p>
-
-<button
-class="btn"
-onclick="showLetter()"
->
-
-Continue ❤️
-
-</button>
-
-</section>
-
-<!-- LOVE LETTER -->
-
-<section
-id="letter"
-class="screen"
->
-
-<h1>
-💌 Dear Harshita
-</h1>
-
-<p>
-
-You entered my life unexpectedly...
-
-but now I can't imagine my life without you.
-
-<br><br>
-
-Thank you for every smile,
-every laugh,
-and every memory.
-
-<br><br>
-
-You became my favorite person.
-
-And if life gives me another chance,
-
-I would still choose you.
-
-Every single time. ❤️
-
-<br><br>
-
-— Aryan ❤️
-
-</p>
-
-<button
-class="btn"
-onclick="showHeart()"
->
-
-Continue ❤️
-
-</button>
-
-</section>
-
-<!-- WHITE HEART -->
-
-<section
-id="heartScreen"
-class="screen"
->
-
-<div
-id="whiteHeart"
-onclick="showLove()"
-style="
-font-size:120px;
-cursor:pointer;
-animation:pulse 1.5s infinite;
-"
->
-
-🤍
-
+<!-- SLIDESHOW -->
+<div class="screen" id="gallery">
+<img id="img" src="photo1.jpg">
+<div class="caption" id="cap"></div>
 </div>
 
-<p style="margin-top:20px;">
-Touch My Heart ❤️
+<!-- MESSAGE -->
+<div class="screen" id="msg">
+<h1>My Rasmalai 🍮❤️</h1>
+<p>
+You are my peace, my happiness and my favorite person in this world.
+I never want to lose you ❤️
 </p>
+<button onclick="heartScreen()">Continue</button>
+</div>
 
-</section>
+<!-- HEART -->
+<div class="screen" id="heartScreen">
+<div style="font-size:100px;cursor:pointer" onclick="love()">🤍</div>
+<p>Touch the Heart</p>
+</div>
 
-<style>
+<!-- LOVE -->
+<div class="screen" id="love">
+<h1>I LOVE YOU HARSHITA ❤️</h1>
+<h2>TODAY • TOMORROW • FOREVER ♾️</h2>
+<button onclick="question()">Continue</button>
+</div>
 
-@keyframes pulse{
+<!-- QUESTION -->
+<div class="screen" id="question">
+<h1>Will you be mine forever,<br>Harshita (Rasmalai)? 🤍</h1>
 
-0%{
-transform:scale(1);
-}
+<button onclick="yes()">Yes 🤍</button>
+<button onclick="yes()">Of course 🌸</button>
+<button onclick="yes()">Forever ♾️</button>
+<button onclick="yes()">I’m yours 🍮</button>
+</div>
 
-50%{
-transform:scale(1.15);
-}
-
-100%{
-transform:scale(1);
-}
-
-}
-
- </style>
-
- <!-- LOVE SCREEN -->
-
-<section
-id="loveScreen"
-class="screen"
->
-
-<h1>
-I LOVE YOU HARSHITA ❤️
-</h1>
-
-<h2 style="margin-top:20px;">
-TODAY • TOMORROW • FOREVER ♾️
-</h2>
-
-<button
-class="btn"
-onclick="showQuestion()"
->
-
-Continue ❤️
-
-</button>
-
-</section>
-
-<!-- QUESTION SCREEN -->
-
-<section
-id="questionScreen"
-class="screen"
->
-
-<h1>
-
-💍 Will You Be Mine Forever,<br>
-Harshita (My Rasmalai)? 🤍
-
-</h1>
-
-<button
-class="btn"
-onclick="finalYes()"
->
-
-🤍 Yes, Forever & Always
-
-</button>
-
-<button
-class="btn"
-onclick="finalYes()"
->
-
-🌸 Of Course, My Aryan
-
-</button>
-
-<button
-class="btn"
-onclick="finalYes()"
->
-
-♾️ Forever and Ever
-
-</button>
-
-<button
-class="btn"
-onclick="finalYes()"
->
-
-🍮 Yes, I'm Your Rasmalai
-
-</button>
-
-</section>
-
-<!-- FINAL SCREEN -->
-
-<section
-id="finalScreen"
-class="screen"
->
-
-<h1>
-SHE SAID YES ❤️
-</h1>
-
-<h2 style="margin-top:20px;">
-Aryan ❤️ Harshita
-</h2>
-
-<h3 style="margin-top:20px;">
-Forever Starts Here ♾️
-</h3>
-
-</section>
+<!-- FINAL -->
+<div class="screen" id="final">
+<h1>SHE SAID YES ❤️</h1>
+<h2>Aryan ❤️ Harshita</h2>
+</div>
 
 <script>
 
-const photos = [
+let i=0;
 
+const images=[
 "photo1.jpg",
 "photo2.jpg",
 "photo3.jpg",
@@ -423,192 +168,91 @@ const photos = [
 "photo5.jpg",
 "photo6.jpg",
 "photo7.jpg"
-
 ];
 
-const captions = [
-
+const captions=[
 "Among millions of smiles, yours became my favorite ❤️",
-
 "The prettiest girl in my world ❤️",
-
 "My favorite notification ❤️",
-
 "The reason my days feel brighter ❤️",
-
 "My comfort, my peace, my happiness ❤️",
-
 "The girl I never want to lose ❤️",
-
 "My forever Rasmalai 🍮❤️"
-
 ];
-
-let current = 0;
 
 function show(id){
-
-document
-.querySelectorAll(".screen")
-.forEach(s=>s.classList.remove("active"));
-
-document
-.getElementById(id)
-.classList.add("active");
-
+document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
 }
 
-function startStory(){
-
+function start(){
 show("gallery");
 
-const music =
-document.getElementById("music");
-
-music.play().catch(()=>{});
+let music=document.getElementById("music");
+music.play();
 
 setTimeout(()=>{
-
 music.pause();
-music.currentTime = 0;
+music.currentTime=0;
+},120000); // 2 min
 
-},120000);
-
-startSlideshow();
-
-}
-
-function startSlideshow(){
-
-const image =
-document.getElementById("slideImage");
-
-const text =
-document.getElementById("slideText");
-
-image.src = photos[0];
-text.innerHTML = captions[0];
-
-let timer = setInterval(()=>{
-
-current++;
-
-if(current >= photos.length){
-
-clearInterval(timer);
-
-setTimeout(()=>{
-
-show("rasmalai");
-
-},3000);
-
-return;
-
-}
-
-image.src = photos[current];
-text.innerHTML = captions[current];
-
-},5000);
-
-}
-
-function showLetter(){
-
-show("letter");
-
-}
-
-function showHeart(){
-
-show("heartScreen");
-
-}
-
-function showLove(){
-
-heartBurst();
-
-show("loveScreen");
-
-}
-
-function showQuestion(){
-
-show("questionScreen");
-
-}
-
-function finalYes(){
-
-show("finalScreen");
-
-whiteHeartRain();
-
-}
-
-function heartBurst(){
-
-for(let i=0;i<35;i++){
-
-const heart =
-document.createElement("div");
-
-heart.className = "heart";
-
-heart.innerHTML = "🤍";
-
-heart.style.left =
-Math.random()*100+"vw";
-
-heart.style.fontSize =
-(Math.random()*25+15)+"px";
-
-heart.style.animationDuration =
-(Math.random()*3+2)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},5000);
-
-}
-
-}
-
-function whiteHeartRain(){
+document.getElementById("img").src=images[0];
+document.getElementById("cap").innerText=captions[0];
 
 setInterval(()=>{
+i++;
+if(i>=images.length){
+setTimeout(()=>show("msg"),2000);
+return;
+}
+document.getElementById("img").src=images[i];
+document.getElementById("cap").innerText=captions[i];
+},4000);
+}
 
-const heart =
-document.createElement("div");
+function heartScreen(){
+show("heartScreen");
+}
 
-heart.className = "heart";
+function love(){
+show("love");
+burst();
+}
 
-heart.innerHTML = "🤍";
+function question(){
+show("question");
+}
 
-heart.style.left =
-Math.random()*100+"vw";
+function yes(){
+show("final");
+rain();
+}
 
-heart.style.fontSize =
-(Math.random()*25+15)+"px";
+/* HEART BURST */
+function burst(){
+for(let i=0;i<30;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="🤍";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),4000);
+}
+}
 
-heart.style.animationDuration =
-(Math.random()*5+3)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},8000);
-
+/* FINAL RAIN */
+function rain(){
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="🤍";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
 },300);
-
 }
 
 </script>
 
 </body>
-</html>
+ </html>
