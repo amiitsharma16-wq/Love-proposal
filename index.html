@@ -90,6 +90,7 @@ background:black;
 }
 
 .gallery-img{
+ transition: opacity 0.8s ease-in-out;
 width:90%;
 max-width:380px;
 height:75vh;
@@ -100,6 +101,7 @@ box-shadow:
 }
 
 .gallery-caption{
+ transition: opacity 0.8s ease-in-out;
 margin-top:20px;
 font-size:1.1rem;
 font-weight:600;
@@ -510,11 +512,21 @@ return;
 
 }
 
+image.style.opacity = "0";
+caption.style.opacity = "0";
+
+setTimeout(()=>{
+
 image.src =
 photos[current];
 
 caption.innerHTML =
 captions[current];
+
+image.style.opacity = "1";
+caption.style.opacity = "1";
+
+},600);
 
 },6000);
 
