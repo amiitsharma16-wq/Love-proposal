@@ -6,7 +6,7 @@
 
 <title>For My Rasmalai ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,8 +19,8 @@ font-family:'Poppins',sans-serif;
 
 body{
 background:#000;
-color:#fff;
 overflow:hidden;
+color:white;
 }
 
 .screen{
@@ -31,8 +31,8 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-text-align:center;
 padding:25px;
+text-align:center;
 transition:1s;
 }
 
@@ -47,20 +47,28 @@ opacity:1;
 pointer-events:auto;
 }
 
-button{
-border:none;
-outline:none;
-cursor:pointer;
+h1{
+font-size:2.2rem;
+text-shadow:
+0 0 10px #fff,
+0 0 20px #fff;
+}
+
+p{
+line-height:1.8;
+max-width:360px;
 }
 
 .btn{
-padding:14px 32px;
+margin-top:25px;
+padding:14px 35px;
+border:none;
 border-radius:50px;
 font-size:1rem;
 font-weight:600;
-background:#fff;
-color:#000;
-margin-top:25px;
+cursor:pointer;
+background:white;
+color:black;
 }
 
 .btn:hover{
@@ -77,164 +85,92 @@ linear-gradient(
 );
 }
 
-#intro h1{
-font-size:2.3rem;
-margin-bottom:15px;
-}
-
-#intro p{
-max-width:340px;
-line-height:1.8;
-opacity:.9;
-}
-
-.glow{
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-
-from{
-text-shadow:0 0 10px white;
-}
-
-to{
-text-shadow:0 0 30px white;
-}
-
-}
-
 #gallery{
-background:#000;
+background:black;
 }
 
 .gallery-img{
 width:90%;
 max-width:380px;
-height:72vh;
+height:75vh;
 object-fit:cover;
 border-radius:25px;
-box-shadow:0 0 30px rgba(255,255,255,.25);
+box-shadow:
+0 0 30px rgba(255,255,255,.35);
 }
 
-.gallery-text{
+.gallery-caption{
 margin-top:20px;
-font-size:1.15rem;
-font-weight:500;
-max-width:340px;
-line-height:1.8;
+font-size:1.1rem;
+font-weight:600;
+text-shadow:
+0 0 15px white;
+max-width:350px;
 }
 
-#rasmalai{
+#note{
 background:
 linear-gradient(
 180deg,
+#050505,
 #111,
-#000
+#050505
 );
 }
 
-#rasmalai h2{
-font-size:2.3rem;
-margin-bottom:20px;
-}
-
-#rasmalai p{
-max-width:360px;
-line-height:2;
+.note-box{
+max-width:370px;
+line-height:1.9;
 font-size:1rem;
 }
 
-#letter{
-background:#000;
-}
-
-.letter{
-background:#fff;
-color:#000;
-padding:25px;
-border-radius:25px;
-width:90%;
-max-width:400px;
-box-shadow:0 0 25px rgba(255,255,255,.25);
-}
-
-.letter h2{
-margin-bottom:15px;
-}
-
-.letter p{
-line-height:1.8;
-font-size:.95rem;
-}
-
 #heartScreen{
-background:#000;
+background:black;
 }
 
 #whiteHeart{
 font-size:120px;
 cursor:pointer;
-animation:pulse 1.6s infinite;
+animation:pulse 1.5s infinite;
 }
 
 @keyframes pulse{
-
-0%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.15);
-}
-
-100%{
-transform:scale(1);
-}
-
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
 }
 
 #loveScreen{
-background:#000;
+background:black;
 }
 
-.big-love{
-font-size:2.1rem;
-font-weight:700;
+#proposal{
+background:black;
 }
 
-.sub-love{
-margin-top:15px;
-font-size:1.1rem;
-}
-
-#questionScreen{
-background:#000;
-}
-
-.question{
-font-size:2rem;
-margin-bottom:25px;
-}
-
-.option-btn{
-width:260px;
-padding:14px;
-margin:8px;
-border-radius:40px;
-background:white;
-color:black;
+.option{
+display:block;
+width:280px;
+padding:15px;
+margin:10px;
+border:none;
+border-radius:50px;
 font-size:1rem;
 font-weight:600;
+cursor:pointer;
+background:white;
+color:black;
 }
 
-#finalScreen{
-background:#000;
+#final{
+background:black;
 }
 
 .final-title{
 font-size:2.4rem;
-font-weight:700;
+text-shadow:
+0 0 15px white,
+0 0 25px white;
 }
 
 .final-sub{
@@ -244,8 +180,9 @@ font-size:1.2rem;
 
 .heart{
 position:absolute;
+font-size:24px;
 color:white;
-font-size:18px;
+pointer-events:none;
 animation:fall linear forwards;
 }
 
@@ -272,277 +209,175 @@ display:none;
 
 <body>
 
-<audio id="bgMusic">
+<audio id="music">
 <source src="Blue-Yung-Kai.mp3" type="audio/mpeg">
 </audio>
 
 <!-- INTRO -->
 
-<section id="intro" class="screen active">
+<div id="intro" class="screen active">
 
-<h1 class="glow">
+<h1>
 For Someone Very Special ❤️
 </h1>
 
 <p>
-
 This page belongs to only one person...
-
-And her name is
-
-<br><br>
-
+and her name is
 <b>Harshita ❤️</b>
-
 </p>
 
-<button class="btn" onclick="startStory()">
-
+<button class="btn"
+onclick="startStory()">
 Open ❤️
-
 </button>
 
-</section>
+</div>
 
-<!-- PHOTO SLIDESHOW -->
+<!-- SLIDESHOW -->
 
-<section id="gallery" class="screen hidden">
+<div id="gallery"
+class="screen hidden">
 
 <img
 id="slideImage"
 class="gallery-img"
-src="photo1.jpg"
->
+src="photo1.jpg">
 
 <div
-id="slideText"
-class="gallery-text"
->
+id="slideCaption"
+class="gallery-caption">
 
 Among millions of smiles...
-Yours became my favorite ❤️
+yours became my favorite ❤️
 
 </div>
 
-</section>
+</div>
 
-<!-- RASMALAI SECTION -->
+<!-- RASMALAI NOTE -->
 
-<section id="rasmalai" class="screen hidden">
+<div id="note"
+class="screen hidden">
 
-<h2>My Rasmalai 🍮❤️</h2>
+<h1>My Rasmalai 🍮❤️</h1>
 
-<p>
+<div class="note-box">
+
+Harshita,
 
 Do you know why I call you Rasmalai?
 
-<br><br>
+Because every time I think about you,
+life feels sweeter.
 
-Because you're the sweetest thing that ever happened to me.
+You are not just my girlfriend.
 
-<br><br>
-
-No matter how difficult my day gets...
-
-one thought of you makes everything feel better.
-
-<br><br>
-
-You are not just my favorite person.
-
-You are my peace.
-
-My comfort.
+You are my comfort.
 
 My happiness.
 
-And one of the best things that ever happened to me. ❤️
+My peace.
 
-</p>
+Whenever I have a bad day,
+your smile makes everything better.
 
-<br>
+I love you more than words can explain.
 
-<button
-class="btn"
-onclick="showLetter()"
->
+And forever...
 
-Continue ❤️
+you will always be
 
-</button>
-
-</section>
-
-<!-- LETTER -->
-
-<section id="letter" class="screen hidden">
-
-<div class="letter">
-
-<h2>💌 Dear Harshita</h2>
-
-<p>
-
-You entered my life unexpectedly...
-
-but now I can't imagine my life without you.
-
-<br><br>
-
-Thank you for every smile.
-
-Every laugh.
-
-Every memory.
-
-And every moment.
-
-<br><br>
-
-You became my favorite notification.
-
-My favorite smile.
-
-My favorite thought.
-
-And my favorite person.
-
-<br><br>
-
-If life gives me a chance to choose again...
-
-I would still choose you.
-
-Every single time. ❤️
-
-<br><br>
-
-— Aryan ❤️
-
-</p>
+My Rasmalai 🍮❤️
 
 </div>
 
-<br>
-
 <button
 class="btn"
-onclick="showHeartScreen()"
->
+onclick="showHeart()">
 
 Continue ❤️
 
 </button>
 
-</section>
+</div>
 
-<!-- WHITE HEART -->
+ <!-- WHITE HEART -->
 
-<section id="heartScreen" class="screen hidden">
+<div id="heartScreen"
+class="screen hidden">
 
 <div id="whiteHeart"
-onclick="showLoveScreen()">
-
+onclick="showLoveMessage()">
 🤍
-
 </div>
 
-<br>
-
-<h2>
-
+<p style="margin-top:20px;">
 Touch My Heart ❤️
-
-</h2>
-
-</section>
-
-<!-- LOVE SCREEN -->
-
-<section id="loveScreen" class="screen hidden">
-
-<div class="big-love">
-
-I LOVE YOU HARSHITA ❤️
+</p>
 
 </div>
 
-<div class="sub-love">
+<!-- LOVE MESSAGE -->
+
+<div id="loveScreen"
+class="screen hidden">
+
+<h1>
+I LOVE YOU HARSHITA ❤️
+</h1>
+
+<p style="margin-top:20px;font-size:1.2rem;">
 
 TODAY • TOMORROW • FOREVER ♾️
 
-</div>
-
-<br><br>
-
-<button
-class="btn"
-onclick="showQuestion()"
->
-
-Continue ❤️
-
-</button>
-
-</section>
-
-<!-- QUESTION SCREEN -->
-
-<section
-id="questionScreen"
-class="screen hidden"
->
-
-<div class="question">
-
-💍 Will You Be Mine Forever? ❤️
+</p>
 
 </div>
 
-<button
-class="option-btn"
-onclick="finalYes()"
->
+<!-- PROPOSAL -->
+
+<div id="proposal"
+class="screen hidden">
+
+<h1>
+💍 Will You Be Mine Forever?
+</h1>
+
+<button class="option"
+onclick="sheSaidYes()">
 
 ❤️ Yes, Always
 
 </button>
 
-<button
-class="option-btn"
-onclick="finalYes()"
->
+<button class="option"
+onclick="sheSaidYes()">
 
 🥺 Of Course
 
 </button>
 
-<button
-class="option-btn"
-onclick="finalYes()"
->
+<button class="option"
+onclick="sheSaidYes()">
 
 ♾️ Forever & Ever
 
 </button>
 
-<button
-class="option-btn"
-onclick="finalYes()"
->
+<button class="option"
+onclick="sheSaidYes()">
 
 🍮 Yes, My Aryan
 
 </button>
 
-</section>
+</div>
 
-<!-- FINAL SCREEN -->
+<!-- FINAL -->
 
-<section
-id="finalScreen"
-class="screen hidden"
->
+<div id="final"
+class="screen hidden">
 
 <div class="final-title">
 
@@ -558,10 +393,19 @@ Aryan ❤️ Harshita
 
 Forever Starts Here ♾️
 
+<br><br>
+
+You will always be my favorite person,
+my happiness,
+and my Rasmalai 🍮❤️
+
 </div>
 
-  </section>
+</div>
+
 <script>
+
+/* PHOTOS */
 
 const photos = [
 
@@ -577,40 +421,36 @@ const photos = [
 
 const captions = [
 
-"Among millions of smiles... Yours became my favorite ❤️",
+"Among millions of smiles, yours became my favorite ❤️",
 
 "The prettiest girl in my world ❤️",
 
 "My favorite notification ❤️",
 
-"The reason my days feel brighter ❤️",
+"The reason behind my happiest days ❤️",
 
-"My comfort, my peace, my happiness ❤️",
+"The girl who brings peace to my heart ❤️",
 
-"The girl I never want to lose ❤️",
+"My comfort, my happiness, my everything ❤️",
 
 "My forever Rasmalai 🍮❤️"
 
 ];
 
-let currentPhoto = 0;
+let current = 0;
 
-function hideAll(){
-
-document
-.querySelectorAll(".screen")
-.forEach(screen=>{
-
-screen.classList.remove("active");
-screen.classList.add("hidden");
-
-});
-
-}
+/* SCREEN SWITCH */
 
 function showScreen(id){
 
-hideAll();
+document
+.querySelectorAll(".screen")
+.forEach(s=>{
+
+s.classList.remove("active");
+s.classList.add("hidden");
+
+});
 
 document
 .getElementById(id)
@@ -622,113 +462,177 @@ document
 
 }
 
+/* START STORY */
+
 function startStory(){
 
 showScreen("gallery");
 
 const music =
-document.getElementById("bgMusic");
+document.getElementById("music");
+
+/* SONG START */
 
 music.play().catch(()=>{});
+
+/* STOP AFTER 2 MIN */
 
 setTimeout(()=>{
 
 music.pause();
-music.currentTime = 0;
 
-},60000);
+},120000);
 
-startSlideshow();
-
-}
-
-function startSlideshow(){
+/* PHOTO SLIDESHOW */
 
 const image =
 document.getElementById("slideImage");
 
-const text =
-document.getElementById("slideText");
+const caption =
+document.getElementById("slideCaption");
 
-image.src = photos[0];
-text.innerHTML = captions[0];
+const interval =
+setInterval(()=>{
 
-let slideshow = setInterval(()=>{
+current++;
 
-currentPhoto++;
+if(current >= photos.length){
 
-if(currentPhoto >= photos.length){
-
-clearInterval(slideshow);
+clearInterval(interval);
 
 setTimeout(()=>{
 
-showScreen("rasmalai");
+showScreen("note");
 
-},2500);
+},2000);
 
 return;
 
 }
 
 image.src =
-photos[currentPhoto];
+photos[current];
 
-text.innerHTML =
-captions[currentPhoto];
+caption.innerHTML =
+captions[current];
 
-},4500);
-
-}
-
-function showLetter(){
-
-showScreen("letter");
+},6000);
 
 }
 
-function showHeartScreen(){
+/* SHOW HEART */
+
+function showHeart(){
 
 showScreen("heartScreen");
 
 }
 
-function showLoveScreen(){
+/* WHITE HEART CLICK */
+
+function showLoveMessage(){
 
 heartBurst();
 
 showScreen("loveScreen");
 
-}
+setTimeout(()=>{
 
-function showQuestion(){
+showScreen("proposal");
 
-showScreen("questionScreen");
-
-}
-
-function finalYes(){
-
-showScreen("finalScreen");
-
-whiteHeartRain();
+},2500);
 
 }
 
-  function createHeart(){
+/* FINAL */
+
+function sheSaidYes(){
+
+showScreen("final");
+
+startHeartRain();
+
+}
+
+/* HEART BURST */
+
+function heartBurst(){
+
+for(let i=0;i<50;i++){
+
+let h =
+document.createElement("div");
+
+h.innerHTML="🤍";
+
+h.style.position="absolute";
+
+h.style.left=
+(window.innerWidth/2)+"px";
+
+h.style.top=
+(window.innerHeight/2)+"px";
+
+h.style.fontSize="30px";
+
+h.style.pointerEvents="none";
+
+document.body.appendChild(h);
+
+const x =
+(Math.random()*600)-300;
+
+const y =
+(Math.random()*600)-300;
+
+h.animate([
+
+{
+transform:
+"translate(0,0)",
+opacity:1
+},
+
+{
+transform:
+`translate(${x}px,${y}px)`,
+opacity:0
+}
+
+],{
+
+duration:1500
+
+});
+
+setTimeout(()=>{
+
+h.remove();
+
+},1500);
+
+}
+
+}
+
+/* WHITE HEART RAIN */
+
+function startHeartRain(){
+
+setInterval(()=>{
 
 const heart =
 document.createElement("div");
 
 heart.classList.add("heart");
 
-heart.innerHTML = "🤍";
+heart.innerHTML="🤍";
 
 heart.style.left =
-Math.random()*100 + "vw";
+Math.random()*100+"vw";
 
 heart.style.animationDuration =
-(Math.random()*3+3)+"s";
+(Math.random()*3+4)+"s";
 
 document.body.appendChild(heart);
 
@@ -736,35 +640,13 @@ setTimeout(()=>{
 
 heart.remove();
 
-},6000);
+},7000);
 
-}
-
-function heartBurst(){
-
-for(let i=0;i<50;i++){
-
-setTimeout(()=>{
-
-createHeart();
-
-},i*40);
-
-}
-
-}
-
-function whiteHeartRain(){
-
-setInterval(()=>{
-
-createHeart();
-
-},250);
+},200);
 
 }
 
 </script>
 
 </body>
-</html>
+</html> 
