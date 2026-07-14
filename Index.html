@@ -1,0 +1,1127 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Happy Birthday Anshu ❤️</title>  
+  <!-- Tailwind CSS -->  
+  <script src="https://cdn.tailwindcss.com"></script>  
+  <!-- FontAwesome for beautiful icons -->  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+  <!-- Google Fonts for premium typography -->  
+  <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">  
+    
+  <style>  
+    /* Premium Typography */  
+    .font-handwritten {  
+      font-family: 'Caveat', cursive;  
+    }  
+    .font-serif-elegant {  
+      font-family: 'Playfair Display', serif;  
+    }  
+    .font-cursive-accent {  
+      font-family: 'Great Vibes', cursive;  
+    }  
+    body {  
+      font-family: 'Inter', sans-serif;  
+      overflow-x: hidden;  
+      background-color: #0b0206;  
+      color: #fce7f3;  
+      user-select: none;  
+      -webkit-tap-highlight-color: transparent;  
+    }  
+  
+    /* Custom Transitions & Animations */  
+    .fade-transition {  
+      transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;  
+    }  
+      
+    @keyframes heartbeat {  
+      0%, 100% { transform: scale(1); }  
+      50% { transform: scale(1.15); }  
+    }  
+    .animate-heartbeat {  
+      animation: heartbeat 1.4s infinite ease-in-out;  
+    }  
+  
+    @keyframes float-slow {  
+      0%, 100% { transform: translateY(0) rotate(0deg); }  
+      50% { transform: translateY(-20px) rotate(5deg); }  
+    }  
+    .animate-float {  
+      animation: float-slow 6s infinite ease-in-out;  
+    }  
+  
+    /* Typing Animation Classes */  
+    .typing-cursor::after {  
+      content: '|';  
+      animation: blink 0.8s infinite;  
+    }  
+    @keyframes blink {  
+      0%, 100% { opacity: 1; }  
+      50% { opacity: 0; }  
+    }  
+  
+    /* Custom Scrollbar for Letter */  
+    .custom-scrollbar::-webkit-scrollbar {  
+      width: 4px;  
+    }  
+    .custom-scrollbar::-webkit-scrollbar-track {  
+      background: rgba(251, 113, 133, 0.1);  
+      border-radius: 999px;  
+    }  
+    .custom-scrollbar::-webkit-scrollbar-thumb {  
+      background: rgba(251, 113, 133, 0.5);  
+      border-radius: 999px;  
+    }  
+  
+    /* Confetti Canvas Container */  
+    #confetti-canvas {  
+      position: absolute;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      pointer-events: none;  
+      z-index: 40;  
+    }  
+  </style>  
+</head>  
+<body class="relative min-h-screen flex flex-col justify-between overflow-hidden">  
+  
+  <!-- ================= BACKGROUND EFFECTS ================= -->  
+  <!-- Ambient glow spheres representing warm memory sparkles -->  
+  <div class="fixed inset-0 pointer-events-none z-0">  
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-pink-900/15 rounded-full blur-[100px]"></div>  
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-rose-950/20 rounded-full blur-[100px]"></div>  
+    <div id="ambient-hearts" class="absolute inset-0 overflow-hidden"></div>  
+  </div>  
+  
+  <!-- ================= AUDIO RESOURCE SETUP ================= -->  
+  <!-- Audio control hidden interface with fallback input for user comfort -->  
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-pink-500/20 text-xs text-pink-300">  
+    <button id="mute-btn" onclick="toggleMute()" class="focus:outline-none transition hover:text-pink-100 flex items-center gap-1.5">  
+      <i id="mute-icon" class="fa-solid fa-volume-xmark text-sm"></i>  
+      <span id="music-status">Music Paused</span>  
+    </button>  
+    <div id="upload-music-trigger" class="relative group cursor-pointer ml-1.5 border-l border-pink-500/20 pl-2">  
+      <label for="music-upload" class="cursor-pointer hover:text-pink-100 flex items-center gap-1" title="Upload Custom Khat.mp3">  
+        <i class="fa-solid fa-file-audio"></i>  
+        <span class="hidden md:inline">Change Track</span>  
+      </label>  
+      <input type="file" id="music-upload" accept="audio/*" class="hidden" onchange="loadLocalMusic(event)">  
+    </div>  
+  </div>  
+    
+  <!-- Hidden HTML5 Audio Element -->  
+  <!-- Defaulting to a royalty-free emotional guitar melody path representing 'Khat.mp3' structure.   
+       User can upload their own 'Khat.mp3' directly on screen via 'Change Track' if needed. -->  
+  <audio id="bg-audio" loop preload="auto">  
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">  
+  </audio>  
+  
+  <!-- ================= MAIN APP WRAPPER ================= -->  
+  <main class="relative flex-1 flex flex-col items-center justify-center z-10 w-full max-w-lg mx-auto px-6 py-8">  
+  
+    <!-- 🌟 SCREEN 1: LOADING SCREEN (3 sec) -->  
+    <div id="screen-loading" class="fade-transition absolute inset-0 bg-[#0c0407] z-50 flex flex-col items-center justify-center">  
+      <!-- Deep contrast baby-pink and rich dark black background pattern -->  
+      <div class="absolute inset-0 bg-radial-gradient from-rose-950/40 via-black to-black opacity-80"></div>  
+        
+      <div class="relative z-10 flex flex-col items-center text-center">  
+        <!-- Floating hearts wrapper -->  
+        <div class="mb-8 relative w-20 h-20 flex items-center justify-center">  
+          <div class="absolute w-12 h-12 bg-pink-500/20 rounded-full animate-ping"></div>  
+          <i class="fa-solid fa-heart text-5xl text-pink-500 animate-heartbeat shadow-lg"></i>  
+        </div>  
+          
+        <!-- Elegant Baby Pink Typed text -->  
+        <h1 id="loading-text" class="text-pink-200 text-xl md:text-2xl font-light font-serif-elegant tracking-wide typing-cursor"></h1>  
+          
+        <!-- Small loading bar -->  
+        <div class="w-40 h-[2px] bg-pink-950/60 rounded-full mt-6 overflow-hidden">  
+          <div id="loading-bar" class="w-0 h-full bg-pink-400 rounded-full transition-all duration-100"></div>  
+        </div>  
+      </div>  
+    </div>  
+  
+  
+    <!-- 🎁 SCREEN 2: WELCOME SCREEN (GIFT BOX) -->  
+    <div id="screen-welcome" class="fade-transition hidden flex flex-col items-center text-center max-w-md w-full py-6">  
+      <div class="relative z-10 flex flex-col items-center justify-center">  
+        <h2 class="text-pink-300 font-handwritten text-3xl mb-1">A Small Surprise For My</h2>  
+        <h1 class="text-pink-500 font-serif-elegant text-4xl md:text-5xl font-bold tracking-wide mb-8">  
+          Rasmalai ❤️  
+        </h1>  
+          
+        <!-- 3D Gift Box Animation Element -->  
+        <div class="relative w-64 h-64 my-6 cursor-pointer group" onclick="openGift()">  
+          <!-- Glow background behind box -->  
+          <div class="absolute inset-4 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition duration-500"></div>  
+            
+          <!-- Outer Gift Box Shape -->  
+          <div id="gift-box-wrapper" class="absolute inset-0 flex flex-col items-center justify-center transform hover:scale-105 transition-transform duration-300">  
+            <!-- Box Lid -->  
+            <div id="gift-lid" class="w-44 h-12 bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 rounded-t-lg shadow-md z-30 transition-transform duration-700 relative">  
+              <!-- Lid Ribbon Accent Horizontal -->  
+              <div class="absolute left-1/2 -translate-x-1/2 w-8 h-full bg-yellow-400"></div>  
+              <!-- Lid Bow SVG -->  
+              <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-8 flex justify-center">  
+                <svg viewBox="0 0 100 50" class="w-full h-full fill-yellow-400">  
+                  <path d="M 50 25 C 20 -10, 5 35, 45 25 C 55 25, 80 -10, 95 35 Z" />  
+                </svg>  
+              </div>  
+            </div>  
+            <!-- Box Base -->  
+            <div id="gift-body" class="w-40 h-36 bg-gradient-to-r from-rose-700 via-pink-600 to-rose-700 rounded-b-lg shadow-xl z-20 relative -mt-1 overflow-hidden transition-all duration-500">  
+              <!-- Horizontal Gold Ribbon -->  
+              <div class="absolute top-1/2 -translate-y-1/2 w-full h-6 bg-yellow-400/80"></div>  
+              <!-- Vertical Gold Ribbon -->  
+              <div class="absolute left-1/2 -translate-x-1/2 h-full w-8 bg-yellow-400"></div>  
+              <!-- Internal Glowing heart that peaks out -->  
+              <div class="absolute top-4 left-1/2 -translate-x-1/2 w-10 h-10 flex items-center justify-center">  
+                <i class="fa-solid fa-heart text-white text-3xl animate-pulse"></i>  
+              </div>  
+            </div>  
+          </div>  
+        </div>  
+  
+        <p class="text-pink-300/60 text-xs mt-6 uppercase tracking-widest animate-pulse">  
+          Tap the gift to unwrap  
+        </p>  
+  
+        <button onclick="openGift()" class="mt-8 px-8 py-3 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-semibold rounded-full shadow-lg shadow-pink-950/40 hover:shadow-pink-500/20 transform hover:-translate-y-0.5 transition active:translate-y-0 text-sm tracking-wider uppercase">  
+          Open Your Surprise <i class="fa-solid fa-gift ml-1"></i>  
+        </button>  
+      </div>  
+    </div>  
+  
+  
+    <!-- 💖 SCREEN 3: BIRTHDAY WISH -->  
+    <div id="screen-wish" class="fade-transition hidden flex flex-col items-center text-center max-w-md w-full">  
+      <!-- Beautiful Sparkles Floating Overlay -->  
+      <div class="relative z-10 w-full flex flex-col items-center">  
+        <div class="w-24 h-24 bg-gradient-to-tr from-pink-500 to-rose-400 rounded-full flex items-center justify-center shadow-lg shadow-pink-500/20 mb-6">  
+          <i class="fa-solid fa-cake-candles text-white text-4xl"></i>  
+        </div>  
+          
+        <p class="text-pink-400 text-lg uppercase tracking-widest font-light mb-1">Happy Birthday</p>  
+        <h1 class="text-white font-serif-elegant text-4xl md:text-5xl font-bold tracking-tight mb-2">  
+          Anshu Chhipa ❤️  
+        </h1>  
+        <div class="w-16 h-[2px] bg-gradient-to-r from-transparent via-pink-500 to-transparent my-4"></div>  
+          
+        <div class="space-y-4 text-pink-100/95 leading-relaxed font-light text-base md:text-lg max-w-sm px-2">  
+          <p class="font-handwritten text-2xl text-pink-300">Happy Birthday, Rasmalai.</p>  
+          <p>I genuinely hope this year brings you endless happiness, good health, beautiful memories, and everything you've ever wished for.</p>  
+          <p class="italic text-pink-300 font-serif-elegant font-medium text-sm md:text-base">  
+            "May your smile always stay the same because it has always been one of the most beautiful things I've ever known." ❤️  
+          </p>  
+        </div>  
+  
+        <button onclick="goToPersonalMessage()" class="mt-10 px-10 py-3.5 bg-white text-rose-950 font-semibold rounded-full shadow-lg hover:shadow-white/15 transform hover:-translate-y-0.5 transition active:translate-y-0 text-sm tracking-wider uppercase flex items-center gap-2">  
+          Continue ❤️  
+        </button>  
+      </div>  
+    </div>  
+  
+  
+    <!-- 💌 SCREEN 4: PERSONAL MESSAGE -->  
+    <div id="screen-personal" class="fade-transition hidden flex flex-col items-center text-center max-w-md w-full">  
+      <div class="relative z-10 flex flex-col items-center">  
+        <!-- Minimalist Envelope Concept Icon -->  
+        <div class="relative mb-6 text-pink-500">  
+          <i class="fa-regular fa-envelope-open text-5xl"></i>  
+          <span class="absolute -top-1 -right-1 flex h-3 w-3">  
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>  
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>  
+          </span>  
+        </div>  
+  
+        <h1 class="text-pink-400 font-serif-elegant text-3xl font-semibold mb-6">For My Baccha ❤️</h1>  
+          
+        <!-- Elegant Multi-line message block -->  
+        <div class="space-y-3.5 text-pink-100/90 text-sm md:text-base font-light tracking-wide max-w-xs md:max-w-md text-center border-l-2 border-pink-500/20 pl-4 pr-1">  
+          <p class="hover:text-pink-200 transition">Life changed...</p>  
+          <p class="hover:text-pink-200 transition">Time changed...</p>  
+          <p class="hover:text-pink-200 transition">Maybe we both changed too...</p>  
+          <p class="hover:text-pink-200 transition font-medium text-pink-300">But some memories never lose their place.</p>  
+          <p class="hover:text-pink-200 transition">Today isn't about the past...</p>  
+          <p class="hover:text-pink-200 transition">It's simply about wishing someone special a very Happy Birthday.</p>  
+          <p class="hover:text-pink-200 transition">I hope you keep smiling...</p>  
+          <p class="hover:text-pink-200 transition">Keep growing...</p>  
+          <p class="hover:text-pink-200 transition">And always stay happy.</p>  
+          <p class="hover:text-pink-200 transition font-serif-elegant italic text-pink-300">Because you deserve every beautiful thing life has to offer.</p>  
+        </div>  
+  
+        <button onclick="startSlideshow()" class="mt-10 px-8 py-3.5 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-semibold rounded-full shadow-lg shadow-pink-950/40 transform hover:-translate-y-0.5 transition active:translate-y-0 text-sm tracking-wider uppercase flex items-center gap-2">  
+          Memories <i class="fa-solid fa-arrow-right-long text-xs"></i>  
+        </button>  
+      </div>  
+    </div>  
+  
+  
+    <!-- 📸 SCREEN 5: SLIDESHOW ❤️ -->  
+    <div id="screen-slideshow" class="fade-transition hidden flex flex-col items-center text-center max-w-md w-full">  
+      <!-- Music Info Indicator -->  
+      <div id="music-indicator" class="mb-4 bg-emerald-950/40 text-emerald-300 text-xs px-3 py-1 rounded-full border border-emerald-500/20 flex items-center gap-1.5 animate-pulse">  
+        <i class="fa-solid fa-music"></i>  
+        <span>Playing Background Music...</span>  
+      </div>  
+  
+      <div class="relative z-10 w-full flex flex-col items-center">  
+        <!-- Premium Polaroid Style Frame with interactive elements -->  
+        <div class="relative bg-white text-[#2a171e] p-4 pb-6 rounded-xl shadow-2xl w-full max-w-sm rotate-1 hover:rotate-0 transition-all duration-500 border border-pink-100">  
+            
+          <!-- Image slot supporting error handling / uploading customization -->  
+          <div class="relative w-full aspect-square bg-[#0b0206] rounded-lg overflow-hidden flex items-center justify-center border border-pink-100/15">  
+            <!-- Custom Image Element -->  
+            <img id="slideshow-image" src="" alt="Memory Photo" class="w-full h-full object-cover transition-opacity duration-1000 opacity-0">  
+              
+            <!-- Beautiful Vector/Emoji Fallbacks in case photos aren't set immediately -->  
+            <div id="image-fallback" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-[#1c0812] to-[#2b0c1b] text-pink-200">  
+              <span id="fallback-icon" class="text-4xl mb-3 animate-float">🌸</span>  
+              <p class="text-xs font-serif-elegant text-pink-300/80">Click the cog on top to add your own real photo or keep this template!</p>  
+            </div>  
+  
+            <!-- Loader inside Polaroid image frame -->  
+            <div id="photo-loading-spinner" class="absolute inset-0 flex items-center justify-center bg-black/60 hidden">  
+              <div class="w-8 h-8 border-2 border-pink-400 border-t-transparent rounded-full animate-spin"></div>  
+            </div>  
+  
+            <!-- Bottom Left Corner Photo Indicator Number -->  
+            <div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10">  
+              <span id="photo-current-num">1</span> / 8  
+            </div>  
+  
+            <!-- Manual File-specific Input for THIS slide to make it customized -->  
+            <div class="absolute bottom-2 left-2 opacity-0 hover:opacity-100 transition z-20">  
+              <label id="slide-upload-label" class="cursor-pointer bg-white/90 text-xs text-rose-950 px-2.5 py-1 rounded-md shadow-lg border border-pink-100 font-semibold hover:bg-white flex items-center gap-1">  
+                <i class="fa-solid fa-camera"></i> Set Photo  
+                <input type="file" id="slide-file-input" accept="image/*" class="hidden" onchange="uploadPhotoForCurrentSlide(event)">  
+              </label>  
+            </div>  
+          </div>  
+  
+          <!-- Polaroid Handwriting Caption Style -->  
+          <div class="mt-4 min-h-[50px] flex items-center justify-center px-2">  
+            <p id="slideshow-caption" class="font-handwritten text-pink-600 text-2xl text-center leading-snug"></p>  
+          </div>  
+        </div>  
+  
+        <!-- Custom Slide Navigation & Manual controls -->  
+        <div class="flex items-center gap-4 mt-6">  
+          <button onclick="prevSlide()" class="w-10 h-10 rounded-full border border-pink-500/20 flex items-center justify-center text-pink-300 hover:bg-pink-500/15 active:scale-95 transition">  
+            <i class="fa-solid fa-chevron-left text-sm"></i>  
+          </button>  
+            
+          <!-- Slide Progress bar indicators -->  
+          <div class="flex gap-1.5" id="slide-indicators-container">  
+            <!-- Dynamically generated indicators -->  
+          </div>  
+  
+          <button onclick="nextSlide()" class="w-10 h-10 rounded-full border border-pink-500/20 flex items-center justify-center text-pink-300 hover:bg-pink-500/15 active:scale-95 transition">  
+            <i class="fa-solid fa-chevron-right text-sm"></i>  
+          </button>  
+        </div>  
+  
+        <!-- Button to go to the letter -->  
+        <button onclick="goToLetter()" class="mt-8 px-8 py-3.5 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-semibold rounded-full shadow-lg shadow-pink-950/40 transform hover:-translate-y-0.5 transition active:translate-y-0 text-sm tracking-wider uppercase flex items-center gap-2">  
+          💌 Read My Letter  
+        </button>  
+          
+        <p class="text-pink-300/50 text-[10px] mt-2 italic">  
+          (Slideshow will pause here automatically)  
+        </p>  
+      </div>  
+    </div>  
+  
+  
+    <!-- 💌 SCREEN 6: LETTER -->  
+    <div id="screen-letter" class="fade-transition hidden flex flex-col items-center text-center max-w-lg w-full">  
+      <div class="relative z-10 w-full flex flex-col items-center">  
+        <!-- Floating Rose SVG/Emoji Accent -->  
+        <span class="text-4xl mb-3 animate-float">🌹</span>  
+          
+        <h1 class="text-pink-300 font-serif-elegant text-3xl font-semibold mb-1">Dear Anshu...</h1>  
+        <p class="text-pink-400 font-handwritten text-xl mb-4">(Meri Rasmalai, Baccha, Jhamkudi ❤️)</p>  
+          
+        <!-- Premium Letter Card Wrapper with Internal Scroll option for readability -->  
+        <div class="w-full bg-[#16060f]/80 backdrop-blur-md rounded-2xl border border-pink-500/25 p-5 md:p-6 text-left shadow-xl shadow-pink-950/30">  
+          <div class="custom-scrollbar max-h-[340px] overflow-y-auto space-y-4 pr-2 text-pink-100/90 text-[14px] md:text-[15px] leading-relaxed font-light">  
+            <p>Sabse pehle...</p>  
+            <p class="font-medium text-pink-300">Happy Birthday Baccha. ❤️</p>  
+            <p>Main bas itna chahta hu ki tumhari life hamesha khushiyon se bhari rahe.</p>  
+            <p>Tum jo bhi chaho...</p>  
+            <p class="italic text-white">Woh tumhe mile.</p>  
+            <p>Aur tum hamesha waise hi muskurati raho... Jaise pehle muskuraya karti thi.</p>  
+              
+            <p class="text-center text-pink-500 py-1 font-semibold">❤️</p>  
+              
+            <p>Aaj itne time baad bhi ek baat bilkul nahi badli... Main aaj bhi tumse bahut pyaar karta hu.</p>  
+            <p>Shayad waqt badal gaya... Lekin meri feelings nahi.</p>  
+            <p>Main aaj bhi tumhe utna hi pasand karta hu... Jitna pehle karta tha. Shayad usse bhi zyada.</p>  
+            <p>Kabhi kabhi bina kisi wajah ke tum yaad aa jaati ho.</p>  
+            <p>Aur jab bhi yaad aati ho... Sabse pehle tumhari smile yaad aati hai.</p>  
+              
+            <p>Main ye sab sirf isliye likh raha hu... Kyuki kuch feelings waqt ke saath khatam nahi hoti... Bas chup ho jaati hain.</p>  
+            <p>Agar kabhi meri kisi baat se tumhe dukh pahucha ho... To dil se <span class="underline decoration-pink-500 decoration-2 font-medium">Sorry</span>.</p>  
+              
+            <p>Chahe hum saath ho ya na ho... Main hamesha dua karunga ki tum khush raho. Safe raho. Aur life me bahut aage badho.</p>  
+              
+            <p class="text-center text-pink-500 py-1 font-semibold">❤️</p>  
+              
+            <p class="font-handwritten text-xl text-pink-300">Meri Rasmalai hamesha meri favourite rahegi.</p>  
+            <p>Happy Birthday Once Again. Take Care.</p>  
+            <p class="font-serif-elegant font-medium text-pink-200">Aur hamesha smile karna... Kyuki tumhari smile bahut special hai.</p>  
+              
+            <p class="text-center text-pink-500 py-1 font-semibold">❤️</p>  
+              
+            <p class="text-right font-handwritten text-2xl text-pink-400">— Aryan</p>  
+          </div>  
+        </div>  
+  
+        <button onclick="goToThankYou()" class="mt-8 px-10 py-3.5 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-semibold rounded-full shadow-lg shadow-pink-950/40 transform hover:-translate-y-0.5 transition active:translate-y-0 text-sm tracking-wider uppercase flex items-center gap-1.5">  
+          Next <i class="fa-solid fa-chevron-right text-xs"></i>  
+        </button>  
+      </div>  
+    </div>  
+  
+  
+    <!-- 🌹 SCREEN 7: THANK YOU PAGE -->  
+    <div id="screen-thankyou" class="fade-transition hidden flex flex-col items-center justify-center text-center max-w-md w-full min-h-[300px]">  
+      <div class="relative z-10">  
+        <!-- Floating Rose Petals Concept -->  
+        <div class="relative mb-8 text-pink-500 animate-float flex justify-center">  
+          <svg class="w-16 h-16 fill-pink-500" viewBox="0 0 24 24">  
+            <path d="M12,2A10,10 0 0,0 2,12C2,16.58 5.07,20.44 9.22,21.61C8.79,20.08 8.61,18.06 9.47,15.77C10.1,14.1 11.23,12.78 12,11.39C12.77,12.78 13.9,14.1 14.53,15.77C15.39,18.06 15.21,20.08 14.78,21.61C18.93,20.44 22,16.58 22,12A10,10 0 0,0 12,2M12,14A2,2 0 1,1 10,12A2,2 0 0,1 12,14Z" />  
+          </svg>  
+        </div>  
+  
+        <!-- Fade in typed layout -->  
+        <div id="thankyou-typing-area" class="min-h-[100px] flex items-center justify-center px-4">  
+          <p id="thankyou-text" class="text-pink-100 font-serif-elegant italic text-xl md:text-2xl leading-relaxed tracking-wide typing-cursor"></p>  
+        </div>  
+      </div>  
+    </div>  
+  
+  
+    <!-- 🎉 SCREEN 8: FINAL SCREEN -->  
+    <div id="screen-final" class="fade-transition hidden flex flex-col items-center text-center max-w-md w-full">  
+      <div class="relative z-10 w-full flex flex-col items-center">  
+        <!-- Floating elements indicators -->  
+        <div class="mb-4 text-pink-500 text-5xl animate-heartbeat flex gap-2">  
+          <i class="fa-solid fa-heart text-pink-400"></i>  
+          <i class="fa-solid fa-star text-yellow-300 text-3xl self-end"></i>  
+          <i class="fa-solid fa-heart text-pink-600"></i>  
+        </div>  
+  
+        <p class="text-xs uppercase tracking-widest text-pink-400 font-light mb-1">❤️ Happy Birthday Once Again</p>  
+        <h1 class="text-white font-serif-elegant text-4xl md:text-5xl font-bold tracking-tight mb-6">Rasmalai</h1>  
+          
+        <div class="w-16 h-[2px] bg-gradient-to-r from-transparent via-pink-500 to-transparent my-2"></div>  
+  
+        <div class="space-y-3.5 my-4 text-pink-200/90 text-sm md:text-base font-light">  
+          <p class="hover:scale-105 transition duration-300">Thank you for every smile.</p>  
+          <p class="hover:scale-105 transition duration-300">Thank you for every memory.</p>  
+          <p class="hover:scale-105 transition duration-300">Thank you for every lesson.</p>  
+          <p class="font-serif-elegant italic text-pink-300 text-base md:text-lg pt-2">  
+            I genuinely wish you a beautiful life ahead.  
+          </p>  
+          <div class="flex justify-center gap-4 pt-2 font-handwritten text-2xl text-pink-400">  
+            <span>Stay Happy.</span>  
+            <span>Stay Blessed.</span>  
+            <span>Always.</span>  
+          </div>  
+        </div>  
+  
+        <!-- Confetti status notice -->  
+        <span class="text-[10px] text-pink-500/50 uppercase tracking-widest mt-6 animate-pulse">  
+          Confetti & Floating Hearts Active  
+        </span>  
+  
+        <button onclick="goToSecretEnding()" class="mt-8 px-10 py-3.5 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-semibold rounded-full shadow-lg shadow-pink-950/40 transform hover:-translate-y-0.5 transition active:translate-y-0 text-sm tracking-wider uppercase flex items-center gap-2">  
+          😊 Keep Smiling  
+        </button>  
+      </div>  
+    </div>  
+  
+  
+    <!-- ❤️ SCREEN 9: SECRET ENDING -->  
+    <div id="screen-secret" class="fade-transition hidden absolute inset-0 bg-black z-50 flex flex-col items-center justify-center px-8">  
+      <div class="relative z-10 w-full max-w-sm flex flex-col items-center text-center">  
+        <!-- Slow typewriter screen layout -->  
+        <div class="min-h-[140px] flex items-center justify-center">  
+          <p id="secret-text" class="text-neutral-400 font-serif-elegant italic text-lg md:text-xl leading-relaxed typing-cursor"></p>  
+        </div>  
+  
+        <!-- Small minimalist heart separating bottom text -->  
+        <div id="secret-heart" class="opacity-0 transition-opacity duration-1000 mt-12 mb-6">  
+          <i class="fa-solid fa-heart text-rose-950 text-xl animate-pulse"></i>  
+        </div>  
+  
+        <!-- Author / Footer signature -->  
+        <p id="secret-footer" class="opacity-0 transition-opacity duration-1000 text-neutral-600 text-xs tracking-widest uppercase font-light">  
+          Made with ❤️ by Aryan  
+        </p>  
+  
+        <!-- Dynamic Restart Surprise Option -->  
+        <button id="secret-restart" onclick="restartSurprise()" class="opacity-0 transition-opacity duration-1000 mt-12 px-5 py-2 border border-neutral-800 hover:border-neutral-700 text-neutral-500 hover:text-neutral-300 text-[11px] uppercase tracking-widest rounded-full transition">  
+          <i class="fa-solid fa-rotate-left mr-1"></i> Replay Surprise  
+        </button>  
+      </div>  
+    </div>  
+  
+  </main>  
+  
+  <!-- ================= CANVAS FOR CONFETTI ================= -->  
+  <canvas id="confetti-canvas"></canvas>  
+  
+  <!-- ================= FOOTER / COPYRIGHT ================= -->  
+  <footer id="global-footer" class="relative z-10 py-4 text-center text-[10px] text-pink-500/20 uppercase tracking-widest">  
+    For Anshu Chhipa • From Aryan ❤️  
+  </footer>  
+  
+  
+  <!-- ================= JAVASCRIPT ================= -->  
+  <script>  
+    /* ================= STATE & CONFIGURATION ================= */  
+    let currentScreen = 'screen-loading';  
+    let typingTimer = null;  
+    let audioContextLoaded = false;  
+      
+    // Audio flow control variables  
+    const audio = document.getElementById('bg-audio');  
+    const muteIcon = document.getElementById('mute-icon');  
+    const musicStatus = document.getElementById('music-status');  
+    const musicIndicator = document.getElementById('music-indicator');  
+      
+    // Slideshow state  
+    let slideIndex = 0;  
+    let slideshowTimer = null;  
+    const slidesData = [  
+      {  
+        emoji: '❤️',  
+        caption: 'The day my world became a little more beautiful.',  
+        img: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600'  
+      },  
+      {  
+        emoji: '🌸',  
+        caption: 'Your smile... my favourite memory.',  
+        img: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&q=80&w=600'  
+      },  
+      {  
+        emoji: '✨',  
+        caption: 'Some moments never fade.',  
+        img: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&q=80&w=600'  
+      },  
+      {  
+        emoji: '💖',  
+        caption: 'Still one of the prettiest smiles I\'ve ever seen.',  
+        img: 'https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&fit=crop&q=80&w=600'  
+      },  
+      {  
+        emoji: '❤️',  
+        caption: 'Every picture tells a story... ours will always stay special.',  
+        img: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=600'  
+      },  
+      {  
+        emoji: '🌙',  
+        caption: 'Thank you for every little memory.',  
+        img: 'https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?auto=format&fit=crop&q=80&w=600'  
+      },  
+      {  
+        emoji: '🦋',  
+        caption: 'Happiness looks beautiful on you.',  
+        img: 'https://images.unsplash.com/photo-1507504038482-762160863BE5?auto=format&fit=crop&q=80&w=600'  
+      },  
+      {  
+        emoji: '❤️',  
+        caption: 'Happy Birthday, My Rasmalai.',  
+        img: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=600'  
+      }  
+    ];  
+  
+    // Array to store custom base64 or uploaded files dynamically  
+    let customSlideImages = Array(8).fill(null);  
+  
+    /* ================= INITIALIZATION ================= */  
+    window.addEventListener('load', () => {  
+      initApp();  
+      initConfetti();  
+      createAmbientHearts();  
+    });  
+  
+    function initApp() {  
+      // 1. Start loading screen sequence immediately  
+      runLoadingSequence();  
+    }  
+  
+  
+    /* ================= AUDIO FLOW CONTROLLER ================= */  
+    // Trigger audio at slides transition with safe browser interaction patterns  
+    function startMusicFlow() {  
+      if (!audioContextLoaded) {  
+        // Set volume and start from 1:47 (107 seconds)  
+        audio.currentTime = 107;  
+        audio.volume = 1.0;  
+          
+        let playPromise = audio.play();  
+        if (playPromise !== undefined) {  
+          playPromise.then(() => {  
+            audioContextLoaded = true;  
+            updateAudioUI(true);  
+          }).catch(error => {  
+            console.log("Auto-play prevented by browser. Will play on next touch/click.");  
+            updateAudioUI(false);  
+          });  
+        }  
+      }  
+    }  
+  
+    function toggleMute() {  
+      if (audio.paused) {  
+        audio.play().then(() => {  
+          updateAudioUI(true);  
+        }).catch(() => {  
+          // Fallback if click blocked  
+        });  
+      } else {  
+        audio.pause();  
+        updateAudioUI(false);  
+      }  
+    }  
+  
+    function updateAudioUI(isPlaying) {  
+      if (isPlaying) {  
+        muteIcon.className = 'fa-solid fa-volume-high text-sm text-pink-400 animate-pulse';  
+        musicStatus.innerText = 'Khat.mp3 playing';  
+        if (musicIndicator) {  
+          musicIndicator.classList.remove('hidden');  
+        }  
+      } else {  
+        muteIcon.className = 'fa-solid fa-volume-xmark text-sm';  
+        musicStatus.innerText = 'Music paused';  
+        if (musicIndicator) {  
+          musicIndicator.classList.add('hidden');  
+        }  
+      }  
+    }  
+  
+    // Load dynamic user custom track  
+    function loadLocalMusic(event) {  
+      const file = event.target.files[0];  
+      if (file) {  
+        const fileURL = URL.createObjectURL(file);  
+        audio.src = fileURL;  
+        audio.currentTime = 107; // Still jump to 1:47 if supported  
+        audio.play().then(() => {  
+          audioContextLoaded = true;  
+          updateAudioUI(true);  
+        });  
+      }  
+    }  
+  
+    // Smoothly transition volume  
+    function fadeAudioVolume(targetVolume, durationMs) {  
+      const startVolume = audio.volume;  
+      const steps = 30;  
+      const interval = durationMs / steps;  
+      let currentStep = 0;  
+  
+      const volumeInterval = setInterval(() => {  
+        currentStep++;  
+        const ratio = currentStep / steps;  
+        audio.volume = startVolume + (targetVolume - startVolume) * ratio;  
+          
+        if (currentStep >= steps) {  
+          clearInterval(volumeInterval);  
+          audio.volume = targetVolume;  
+          if (targetVolume === 0) {  
+            audio.pause();  
+            updateAudioUI(false);  
+          }  
+        }  
+      }, interval);  
+    }  
+  
+  
+    /* ================= SCREEN TRANSITION UTILITIES ================= */  
+    function transitionScreen(fromId, toId, callback = null) {  
+      const fromScreen = document.getElementById(fromId);  
+      const toScreen = document.getElementById(toId);  
+        
+      // Begin fade out  
+      fromScreen.style.opacity = '0';  
+        
+      setTimeout(() => {  
+        fromScreen.classList.add('hidden');  
+        toScreen.classList.remove('hidden');  
+        toScreen.style.opacity = '0';  
+          
+        // Trigger repaint to process transition  
+        toScreen.offsetHeight;   
+          
+        toScreen.style.opacity = '1';  
+        currentScreen = toId;  
+          
+        if (callback) callback();  
+      }, 1000);  
+    }  
+  
+  
+    /* ================= SCREEN 1: LOADING SCREEN ================= */  
+    function runLoadingSequence() {  
+      const loadingTextEl = document.getElementById('loading-text');  
+      const textToType = "Loading a Special Surprise... ❤️";  
+      let charIndex = 0;  
+        
+      // Typing effect  
+      function typeCharacter() {  
+        if (charIndex < textToType.length) {  
+          loadingTextEl.innerHTML += textToType.charAt(charIndex);  
+          charIndex++;  
+          setTimeout(typeCharacter, 60);  
+        }  
+      }  
+      setTimeout(typeCharacter, 300);  
+  
+      // Loading Bar increments  
+      const loadingBar = document.getElementById('loading-bar');  
+      let progress = 0;  
+      const interval = setInterval(() => {  
+        progress += 3.33; // 3 seconds total divided nicely  
+        if (progress >= 100) {  
+          progress = 100;  
+          clearInterval(interval);  
+            
+          // Wait briefly then transition to Gift box  
+          setTimeout(() => {  
+            transitionScreen('screen-loading', 'screen-welcome');  
+          }, 400);  
+        }  
+        loadingBar.style.width = `${progress}%`;  
+      }, 100);  
+    }  
+  
+  
+    /* ================= SCREEN 2: WELCOME (GIFT BOX) ================= */  
+    function openGift() {  
+      const lid = document.getElementById('gift-lid');  
+      const body = document.getElementById('gift-body');  
+        
+      // Trigger Gift Open Animation  
+      lid.style.transform = 'translateY(-120px) rotate(-15deg)';  
+      body.style.transform = 'scale(0.95)';  
+        
+      // Burst Confetti on gift click  
+      triggerConfettiBurst();  
+  
+      // Slow fade and move to next Screen 3  
+      setTimeout(() => {  
+        transitionScreen('screen-welcome', 'screen-wish');  
+      }, 1400);  
+    }  
+  
+  
+    /* ================= SCREEN 3: BIRTHDAY WISH ================= */  
+    function goToPersonalMessage() {  
+      transitionScreen('screen-wish', 'screen-personal');  
+    }  
+  
+  
+    /* ================= SCREEN 4: PERSONAL MESSAGE ================= */  
+    function goToPersonalMessage() {  
+      transitionScreen('screen-wish', 'screen-personal');  
+    }  
+  
+    function startSlideshow() {  
+      // Transition to slideshow, and simultaneously start playing Khat.mp3 from 1:47  
+      transitionScreen('screen-personal', 'screen-slideshow', () => {  
+        startMusicFlow();  
+        setupSlideIndicatorDots();  
+        renderSlide();  
+        runSlideshowInterval();  
+      });  
+    }  
+  
+  
+    /* ================= SCREEN 5: SLIDESHOW ❤️ ================= */  
+    function setupSlideIndicatorDots() {  
+      const container = document.getElementById('slide-indicators-container');  
+      container.innerHTML = '';  
+      for (let i = 0; i < slidesData.length; i++) {  
+        const dot = document.createElement('div');  
+        dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === slideIndex ? 'bg-pink-500 w-4' : 'bg-pink-950/40'}`;  
+        dot.id = `dot-${i}`;  
+        container.appendChild(dot);  
+      }  
+    }  
+  
+    function updateSlideIndicatorDots() {  
+      for (let i = 0; i < slidesData.length; i++) {  
+        const dot = document.getElementById(`dot-${i}`);  
+        if (dot) {  
+          if (i === slideIndex) {  
+            dot.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-pink-500 w-4';  
+          } else {  
+            dot.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-pink-950/40';  
+          }  
+        }  
+      }  
+    }  
+  
+    function renderSlide() {  
+      const slide = slidesData[slideIndex];  
+      const imgEl = document.getElementById('slideshow-image');  
+      const fallbackEl = document.getElementById('image-fallback');  
+      const fallbackIcon = document.getElementById('fallback-icon');  
+      const numEl = document.getElementById('photo-current-num');  
+      const captionEl = document.getElementById('slideshow-caption');  
+      const spinner = document.getElementById('photo-loading-spinner');  
+  
+      numEl.innerText = slideIndex + 1;  
+      captionEl.innerText = slide.caption;  
+      fallbackIcon.innerText = slide.emoji;  
+  
+      // Check if custom image exists  
+      const customImg = customSlideImages[slideIndex];  
+      const imageSrc = customImg ? customImg : slide.img;  
+  
+      // Smooth fade transition of image inside polaroid  
+      imgEl.style.opacity = '0';  
+      spinner.classList.remove('hidden');  
+  
+      const tempImg = new Image();  
+      tempImg.onload = () => {  
+        imgEl.src = imageSrc;  
+        imgEl.style.opacity = '1';  
+        fallbackEl.style.opacity = '0';  
+        spinner.classList.add('hidden');  
+      };  
+      tempImg.onerror = () => {  
+        // Fallback to cute design if offline or load fails  
+        fallbackEl.style.opacity = '1';  
+        imgEl.style.opacity = '0';  
+        spinner.classList.add('hidden');  
+      };  
+      tempImg.src = imageSrc;  
+    }  
+  
+    function runSlideshowInterval() {  
+      clearInterval(slideshowTimer);  
+      slideshowTimer = setInterval(() => {  
+        if (slideIndex < slidesData.length - 1) {  
+          slideIndex++;  
+          updateSlideIndicatorDots();  
+          renderSlide();  
+        } else {  
+          // Stay on the final slide automatically as per requested structure  
+          clearInterval(slideshowTimer);  
+        }  
+      }, 6000); // 6 Seconds Timer per Photo  
+    }  
+  
+    function nextSlide() {  
+      clearInterval(slideshowTimer);  
+      if (slideIndex < slidesData.length - 1) {  
+        slideIndex++;  
+      } else {  
+        slideIndex = 0; // wrap around on manual click  
+      }  
+      updateSlideIndicatorDots();  
+      renderSlide();  
+      runSlideshowInterval();  
+    }  
+  
+    function prevSlide() {  
+      clearInterval(slideshowTimer);  
+      if (slideIndex > 0) {  
+        slideIndex--;  
+      } else {  
+        slideIndex = slidesData.length - 1;  
+      }  
+      updateSlideIndicatorDots();  
+      renderSlide();  
+      runSlideshowInterval();  
+    }  
+  
+    // Handle customized photograph upload manually on the polaroid  
+    function uploadPhotoForCurrentSlide(event) {  
+      const file = event.target.files[0];  
+      if (file) {  
+        const reader = new FileReader();  
+        reader.onload = function(e) {  
+          customSlideImages[slideIndex] = e.target.result;  
+          renderSlide();  
+        }  
+        reader.readAsDataURL(file);  
+      }  
+    }  
+  
+    function goToLetter() {  
+      // Clear interval to pause slideshow  
+      clearInterval(slideshowTimer);  
+        
+      // Lower music background volume to 30% dynamically  
+      fadeAudioVolume(0.3, 1500);  
+  
+      transitionScreen('screen-slideshow', 'screen-letter');  
+    }  
+  
+  
+    /* ================= SCREEN 6: LETTER ================= */  
+    function goToThankYou() {  
+      transitionScreen('screen-letter', 'screen-thankyou', () => {  
+        runThankYouTyping();  
+      });  
+    }  
+  
+  
+    /* ================= SCREEN 7: THANK YOU PAGE ================= */  
+    function runThankYouTyping() {  
+      const thankyouTextEl = document.getElementById('thankyou-text');  
+      thankyouTextEl.innerHTML = '';  
+        
+      const line1 = "Some people leave...<br>But beautiful memories never do.";  
+      let charIndex = 0;  
+      let bufferText = "";  
+  
+      // Clean typing loop  
+      function typeText() {  
+        if (charIndex < line1.length) {  
+          // Detect HTML tags to output instantly  
+          if (line1.charAt(charIndex) === '<') {  
+            const closingIndex = line1.indexOf('>', charIndex);  
+            bufferText += line1.substring(charIndex, closingIndex + 1);  
+            charIndex = closingIndex + 1;  
+          } else {  
+            bufferText += line1.charAt(charIndex);  
+            charIndex++;  
+          }  
+          thankyouTextEl.innerHTML = bufferText;  
+          typingTimer = setTimeout(typeText, 70);  
+        } else {  
+          // Fade after displaying completely for a couple of seconds  
+          setTimeout(() => {  
+            transitionScreen('screen-thankyou', 'screen-final', () => {  
+              // Trigger final screen decorations & restart normal full volume music flow  
+              fadeAudioVolume(1.0, 1000);  
+              triggerConfettiBurst(5); // Repeated joyful bursts  
+            });  
+          }, 2500);  
+        }  
+      }  
+  
+      setTimeout(typeText, 500);  
+    }  
+  
+  
+    /* ================= SCREEN 8: FINAL SCREEN ================= */  
+    function goToSecretEnding() {  
+      // Music fade out over 3 seconds before transition finishes  
+      fadeAudioVolume(0.0, 3000);  
+        
+      transitionScreen('screen-final', 'screen-secret', () => {  
+        runSecretTyping();  
+      });  
+    }  
+  
+  
+    /* ================= SCREEN 9: SECRET ENDING ================= */  
+    function runSecretTyping() {  
+      const secretTextEl = document.getElementById('secret-text');  
+      const footerEl = document.getElementById('secret-footer');  
+      const heartEl = document.getElementById('secret-heart');  
+      const restartEl = document.getElementById('secret-restart');  
+        
+      secretTextEl.innerHTML = '';  
+        
+      const lines = [  
+        "No matter what happens in life...",  
+        "You'll always be one of the most beautiful chapters of my life.",  
+        "Happy Birthday, Rasmalai. ❤️"  
+      ];  
+        
+      let lineIndex = 0;  
+      let charIndex = 0;  
+      let bufferText = "";  
+  
+      function typeLine() {  
+        if (lineIndex < lines.length) {  
+          const currentLine = lines[lineIndex];  
+          if (charIndex < currentLine.length) {  
+            bufferText += currentLine.charAt(charIndex);  
+            secretTextEl.innerHTML = bufferText + (lineIndex < lines.length - 1 ? "<br>" : "");  
+            charIndex++;  
+            setTimeout(typeLine, 85); // Slow sentimental typing  
+          } else {  
+            lineIndex++;  
+            charIndex = 0;  
+            bufferText = secretTextEl.innerHTML; // save state with linebreak  
+            setTimeout(typeLine, 1000); // pause between logical sentences  
+          }  
+        } else {  
+          // Remove typing cursor indicator  
+          secretTextEl.classList.remove('typing-cursor');  
+            
+          // Beautiful sequential fade in of final details  
+          setTimeout(() => {  
+            heartEl.style.opacity = '1';  
+          }, 500);  
+            
+          setTimeout(() => {  
+            footerEl.style.opacity = '1';  
+          }, 1500);  
+  
+          setTimeout(() => {  
+            restartEl.style.opacity = '1';  
+          }, 2500);  
+        }  
+      }  
+  
+      setTimeout(typeLine, 1000);  
+    }  
+  
+    function restartSurprise() {  
+      // Soft reset of the experience  
+      slideIndex = 0;  
+      audioContextLoaded = false;  
+      audio.pause();  
+      audio.currentTime = 107;  
+      updateAudioUI(false);  
+        
+      // Reset UI visibility styling for secret screen  
+      document.getElementById('secret-footer').style.opacity = '0';  
+      document.getElementById('secret-heart').style.opacity = '0';  
+      document.getElementById('secret-restart').style.opacity = '0';  
+      document.getElementById('secret-text').classList.add('typing-cursor');  
+  
+      // Go back to the welcoming screen  
+      transitionScreen('screen-secret', 'screen-loading', () => {  
+        runLoadingSequence();  
+      });  
+    }  
+  
+  
+    /* ================= VISUALS: FLOATING HEARTS BACKGROUND ================= */  
+    function createAmbientHearts() {  
+      const container = document.getElementById('ambient-hearts');  
+      const heartStyles = ['text-pink-500/10', 'text-rose-500/15', 'text-pink-400/10', 'text-pink-600/10'];  
+        
+      // Spawn 15 subtle drifting hearts in background  
+      for (let i = 0; i < 15; i++) {  
+        const heart = document.createElement('i');  
+        heart.className = `fa-solid fa-heart absolute ${heartStyles[Math.floor(Math.random() * heartStyles.length)]} pointer-events-none`;  
+        heart.style.left = `${Math.random() * 100}%`;  
+        heart.style.top = `${Math.random() * 100}%`;  
+        heart.style.fontSize = `${Math.random() * 20 + 10}px`;  
+        heart.style.animation = `float-slow ${Math.random() * 6 + 6}s infinite ease-in-out`;  
+        heart.style.animationDelay = `${Math.random() * 5}s`;  
+        container.appendChild(heart);  
+      }  
+    }  
+  
+  
+    /* ================= VISUALS: CONFETTI CONTROLLER ================= */  
+    let canvas, ctx, confettiPieces = [];  
+    const colors = ['#f43f5e', '#ec4899', '#f472b6', '#fb7185', '#fbcfe8', '#f43f5e', '#fff'];  
+  
+    function initConfetti() {  
+      canvas = document.getElementById('confetti-canvas');  
+      ctx = canvas.getContext('2d');  
+      resizeCanvas();  
+      window.addEventListener('resize', resizeCanvas);  
+    }  
+  
+    function resizeCanvas() {  
+      canvas.width = window.innerWidth;  
+      canvas.height = window.innerHeight;  
+    }  
+  
+    class ConfettiPiece {  
+      constructor(isBurst = false, originX = null, originY = null) {  
+        this.x = isBurst ? originX : Math.random() * canvas.width;  
+        this.y = isBurst ? originY : -20;  
+        this.size = Math.random() * 6 + 4;  
+        this.color = colors[Math.floor(Math.random() * colors.length)];  
+        this.speedX = isBurst ? (Math.random() * 8 - 4) : (Math.random() * 2 - 1);  
+        this.speedY = isBurst ? (Math.random() * -10 - 2) : (Math.random() * 3 + 2);  
+        this.rotation = Math.random() * 360;  
+        this.rotationSpeed = Math.random() * 4 - 2;  
+        this.gravity = 0.15;  
+      }  
+  
+      update() {  
+        this.speedY += this.gravity;  
+        this.x += this.speedX;  
+        this.y += this.speedY;  
+        this.rotation += this.rotationSpeed;  
+      }  
+  
+      draw() {  
+        ctx.save();  
+        ctx.translate(this.x, this.y);  
+        ctx.rotate((this.rotation * Math.PI) / 180);  
+        ctx.fillStyle = this.color;  
+        // Draw heart shape instead of simple rectangle confetti  
+        ctx.beginPath();  
+        const d = this.size;  
+        ctx.moveTo(0, d / 4);  
+        ctx.quadraticCurveTo(0, 0, d / 2, 0);  
+        ctx.quadraticCurveTo(d, 0, d, d / 3);  
+        ctx.quadraticCurveTo(d, d * 2/3, d / 2, d);  
+        ctx.quadraticCurveTo(0, d * 2/3, 0, d / 3);  
+        ctx.closePath();  
+        ctx.fill();  
+        ctx.restore();  
+      }  
+    }  
+  
+    function triggerConfettiBurst(burstsCount = 1) {  
+      let count = 0;  
+      const trigger = () => {  
+        const x = Math.random() * canvas.width;  
+        const y = canvas.height * 0.7; // Burst up from lower third of screen  
+        for (let i = 0; i < 40; i++) {  
+          confettiPieces.push(new ConfettiPiece(true, x, y));  
+        }  
+        count++;  
+        if (count < burstsCount) {  
+          setTimeout(trigger, 400);  
+        }  
+      };  
+      trigger();  
+    }  
+  
+    function animateConfetti() {  
+      ctx.clearRect(0, 0, canvas.width, canvas.height);  
+        
+      // Constantly feed slow general floating hearts if on special screens  
+      if (currentScreen === 'screen-wish' || currentScreen === 'screen-final') {  
+        if (Math.random() < 0.1 && confettiPieces.length < 100) {  
+          confettiPieces.push(new ConfettiPiece(false));  
+        }  
+      }  
+  
+      confettiPieces.forEach((piece, index) => {  
+        piece.update();  
+        piece.draw();  
+          
+        // Remove offscreen particles  
+        if (piece.y > canvas.height + 20 || piece.x < -20 || piece.x > canvas.width + 20) {  
+          confettiPieces.splice(index, 1);  
+        }  
+      });  
+  
+      requestAnimationFrame(animateConfetti);  
+    }  
+      
+    // Start looping canvas frames  
+    requestAnimationFrame(animateConfetti);  
+  
+  </script>  
+</body>  
+</html>
